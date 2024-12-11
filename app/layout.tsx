@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import localFont from "next/font/local"
 import "./globals.css"
 import { Header } from "@/components/Header"
+import { Bricolage_Grotesque } from "next/font/google"
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -12,6 +13,18 @@ const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
+})
+
+const bdo_grotesk = localFont({
+  src: [
+    { path: "./fonts/BDOGrotesk-Light.ttf", weight: "300" },
+    { path: "./fonts/BDOGrotesk-Regular.ttf", weight: "400" },
+    { path: "./fonts/BDOGrotesk-Medium.ttf", weight: "500" },
+    { path: "./fonts/BDOGrotesk-DemiBold.ttf", weight: "600" },
+    { path: "./fonts/BDOGrotesk-Bold.ttf", weight: "700" },
+    { path: "./fonts/BDOGrotesk-ExtraBold.ttf", weight: "800" },
+  ],
+  variable: "--font-bdo",
 })
 
 export const metadata: Metadata = {
@@ -27,7 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased md:w-[82%] w-[90%] mx-auto overflow-hidden`}
+        className={`${geistSans.variable} ${geistMono.variable} ${bdo_grotesk.variable} font-bdo antialiased 2xl:w-[82%] lg:w-[95%] w-[100%] lg:px-0 px-4 mx-auto overflow-x-hidden`}
       >
         {children}
       </body>

@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss";
+import type { Config } from "tailwindcss"
 
 export default {
   content: [
@@ -11,8 +11,13 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        secondary: "#CEFBD0",
+        primary: "#1B481D",
+      },
+      fontFamily: {
+        bdo: "var(--font-bdo)",
       },
     },
   },
   plugins: [],
-} satisfies Config;
+} satisfies Config

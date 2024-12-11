@@ -2,85 +2,90 @@
 import gsap from "gsap"
 import React, { useEffect } from "react"
 
-export const Logo = () => {
-  const tl = gsap.timeline({})
+export const Logo = ({ tl }: { tl?: gsap.core.Timeline }) => {
+  // const tl = gsap.timeline({})
   const animation = () => {
-    tl.set("#logo-body", {
-      y: "50vh",
-      x: "75vw",
-      xPercent: -48,
-    })
-      .set("#logo-svg", { scale: 2 })
-      .set("#shapes", {
-        rotate: "-180deg",
-        x: 20,
-        transformOrigin: "center center",
-      })
-
-      .fromTo(
-        "#green-shape",
-        { y: "-100%", opacity: 0 },
-        {
-          y: "0%",
-          duration: 1,
-          zIndex: 100,
-          ease: "elastic.out(1,0.75)",
-          opacity: 1,
-        }
-      )
-
-      .fromTo(
-        "#black-shape",
-        { y: "120%", opacity: 0 },
-        {
-          y: "0%",
-          duration: 1,
-          zIndex: 100,
-          ease: "elastic.out(1,0.75)",
-          opacity: 1,
-        },
-        "-=0.8"
-      )
-
-      .to(
-        "#shapes",
-        {
-          rotate: "0deg",
-          duration: 0.6,
+    tl &&
+      tl
+        .set("#logo-body", {
+          y: "45vh",
+          x: "50vw",
+          xPercent: window?.matchMedia("(max-width: 720px)").matches
+            ? -55
+            : -130,
+        })
+        .set("#logo-svg", { scale: 2 })
+        .set("#shapes", {
+          rotate: "-180deg",
+          x: 20,
           transformOrigin: "center center",
+        })
+
+        .fromTo(
+          "#green-shape",
+          { y: "-100%", opacity: 0 },
+          {
+            y: "0%",
+            duration: 1,
+            zIndex: 100,
+            ease: "elastic.out(1,0.75)",
+            opacity: 1,
+            delay: 0.1,
+          }
+        )
+
+        .fromTo(
+          "#black-shape",
+          { y: "120%", opacity: 0 },
+          {
+            y: "0%",
+            duration: 1,
+            zIndex: 100,
+            ease: "elastic.out(1,0.75)",
+            opacity: 1,
+          },
+          "-=0.8"
+        )
+
+        .to(
+          "#shapes",
+          {
+            rotate: "0deg",
+            duration: 0.6,
+            transformOrigin: "center center",
+            ease: "expo.out",
+          },
+          "-=0.3"
+        )
+        .to(
+          "#shapes",
+          {
+            duration: 1,
+            x: 0,
+            ease: "elastic.out(1,0.75)",
+          },
+          "<0.1"
+        )
+        .fromTo(
+          "#logo-text",
+          { x: "70%", opacity: 0 },
+          {
+            x: "0",
+            opacity: 1,
+            duration: 1.2,
+            ease: "elastic.out(1,1)",
+            stagger: 0.5,
+          },
+          "<-0.15"
+        )
+        .to("#logo-body", {
+          duration: 0.8,
           ease: "expo.out",
-        },
-        "-=0.3"
-      )
-      .to(
-        "#shapes",
-        {
-          duration: 1,
+          y: 0,
           x: 0,
-          ease: "elastic.out(1,0.75)",
-        },
-        "<0.1"
-      )
-      .fromTo(
-        "#logo-text",
-        { x: "70%", opacity: 0 },
-        {
-          x: "0",
-          opacity: 1,
-          duration: 1.2,
-          ease: "elastic.out(1,1)",
-          stagger: 0.5,
-        },
-        "<-0.15"
-      )
-      .to("#logo-body", {
-        duration: 0.8,
-        ease: "expo.out",
-        y: 0,
-        x: 0,
-        xPercent: 0,
-      })
-      .to("#logo-svg", { scale: 1, duration: 0.8, ease: "expo.out" }, "<")
+          xPercent: 0,
+        })
+        .to("#logo-svg", { scale: 1, duration: 0.8, ease: "expo.out" }, "<")
   }
   useEffect(() => {
     animation()
