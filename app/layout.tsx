@@ -40,7 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${bdo_grotesk.variable} font-bdo antialiased 2xl:w-[82%] lg:w-[95%] w-[100%] lg:px-0 px-4 mx-auto overflow-x-hidden`}
+        className={`${geistSans.variable} ${geistMono.variable} ${bdo_grotesk.variable} font-bdo antialiased lg:px-0 px-4 pb-8 mx-auto overflow-x-hidden`}
       >
         {children}
       </body>

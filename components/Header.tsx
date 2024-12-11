@@ -9,7 +9,7 @@ export const Header = ({ tl }: { tl: gsap.core.Timeline }) => {
     // tl.fromTo(".up-text", { y: 120 }, { y: 0, stagger: 0.1 })
   }, [])
   return (
-    <div className="py-4 w-full flex items-center justify-between">
+    <div className="py-4 w-full flex items-center justify-between 2xl:w-[82%] lg:w-[95%] mx-auto">
       <div>
         <Logo tl={tl} />
       </div>

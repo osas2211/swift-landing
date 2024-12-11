@@ -3,6 +3,8 @@ import React, { useEffect } from "react"
 import { Header } from "../Header"
 import { Hero } from "./Hero"
 import gsap from "gsap"
+import { Slider } from "./Slider"
+import { WhoWeAre } from "./WhoWeAre"
 
 export const HomePage = () => {
   const tl = gsap.timeline({})
@@ -12,8 +14,14 @@ export const HomePage = () => {
   return (
     <div id="home-body" className="home-body overflow-x-hidden">
       <Header tl={tl} />
-      <div className="md:my-[90px] my-8 mt-6">
+      <div className="md:my-[90px] xl:mb-[250px] my-8 mt-6">
         <Hero tl={tl} />
+      </div>
+      <div>
+        <Slider />
+      </div>
+      <div>
+        <WhoWeAre />
       </div>
     </div>
   )

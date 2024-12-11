@@ -29,7 +29,7 @@ export const Hero = ({ tl }: { tl: gsap.core.Timeline }) => {
       .fromTo(
         ".reveal-display",
         { opacity: 0 },
-        { opacity: 1, duration: 0.3, ease: "circ.out" },
+        { opacity: 1, duration: 0.3, ease: "circ.out", stagger: 0.2 },
         "<-0.03"
       )
       .fromTo(
@@ -77,7 +77,7 @@ export const Hero = ({ tl }: { tl: gsap.core.Timeline }) => {
   }, [])
   return (
     <div
-      className="flex items-center md:gap-9 gap-5 justify-between lg:flex-row flex-col"
+      className="flex items-center md:gap-9 gap-5 justify-between lg:flex-row flex-col 2xl:w-[82%] lg:w-[95%] w-[100%] mx-auto "
       id="home-hero"
     >
       <div className="2xl:w-[44%] md:w-[50%]">
