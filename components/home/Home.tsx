@@ -8,6 +8,7 @@ import { WhoWeAre } from "./WhoWeAre"
 import { HowItWorks } from "./HowItWorks"
 import { SendAndRecieve } from "./SendAndRecieve"
 import { Faqs } from "./Faqs"
+import { BorderlessDelivery } from "./BorderlessDelivery"
 
 export const HomePage = () => {
   const tl = gsap.timeline({})
@@ -35,6 +36,9 @@ export const HomePage = () => {
         </div>
         <div>
           <Faqs />
+        </div>
+        <div>
+          <BorderlessDelivery />
         </div>
       </div>
     </div>

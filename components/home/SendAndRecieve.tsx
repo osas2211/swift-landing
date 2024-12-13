@@ -8,7 +8,7 @@ export const SendAndRecieve = () => {
       <p className="text-[58px] leading-[74px] max-w-[627px]">
         Send & Receive Package Anywhere{" "}
       </p>
-      <p className="my-[22px] text-[#7C7C7A] max-w-[627px]">
+      <p className="my-[22px] text-[#7C7C7A] max-w-[500px]">
         You can start sending all your package from anywhere and your order will
         be fulfill the same day
       </p>
