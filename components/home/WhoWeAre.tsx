@@ -2,22 +2,25 @@
 import React from "react"
 import { Button } from "../utilities/Button"
 import { SalesPerson } from "./SalesPerson"
+import { SalesPersonMobile } from "./SalesPersonMobile"
 
 export const WhoWeAre = () => {
   return (
-    <div className="my-[103px]">
-      <div className="py-5 text-center space-y-4 mb-[42px] md:w-[632px] mx-auto">
-        <p className="text-[#60605E] text-[18px] font-medium">Who We Are.</p>
-        <p className="text-[40px]">We Are Swiftvia Africa</p>
-        <p className="text-[#60605E]">
+    <div className="md:my-[103px] my-[20px]">
+      <div className="py-5 text-center md:space-y-4 space-y-2 mb-[42px] md:w-[632px] mx-auto px-4">
+        <p className="text-[#60605E] md:text-[18px] font-medium text-[16px]">
+          Who We Are.
+        </p>
+        <p className="md:text-[40px] text-[24px]">We Are Swiftvia Africa</p>
+        <p className="text-[#60605E] md:text-[16px] text-sm">
           Connecting riders, businesses, and partners across Africa in a
           sustainable way—so every journey feels like progress.
         </p>
       </div>
-      <div className="bg-secondary">
-        <div className="flex items-center gap-7 justify-between 2xl:w-[82%] lg:w-[95%] w-[100%] mx-auto py-[79px]">
-          <div className="w-[44%]">
-            <p className="text-[40px] leading-[54px] font-semibold">
+      <div className="bg-secondary px-4 py-6">
+        <div className="flex md:items-center md:flex-row flex-col gap-7 justify-between max-w-[1590px] mx-auto md:py-[59px]">
+          <div className="md:w-[44%]">
+            <p className="md:text-[40px] md:leading-[54px] text-[24px] leading-[32px] font-semibold">
               Connecting Riders, Businesses, and Customers for Seamless Delivery
             </p>
             <div className="overflow-hidden">
@@ -30,17 +33,17 @@ export const WhoWeAre = () => {
               </p>
             </div>
             <div className="overflow-hidden md:w-auto w-full md:mt-[50px]">
-              <Button
-                size="large"
-                className="up-text md:w-auto w-full bg-[#123014]"
-              >
+              <Button size="large" className="up-text md:w-auto bg-[#123014]">
                 Learn more
               </Button>
             </div>
           </div>
 
           <div>
-            <SalesPerson />
+            <div>
+              <SalesPerson />
+              <SalesPersonMobile />
+            </div>
           </div>
         </div>
       </div>

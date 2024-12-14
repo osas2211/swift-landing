@@ -8,11 +8,11 @@ import Image from "next/image"
 
 export const Slider = () => {
   return (
-    <div className="w-full 2xl:ml-[9%] lg:ml-[2.5%] ml-0 lg:mt-[143px] reveal-display pb-7">
+    <div className="w-full 2xl:ml-[9%] lg:ml-[2.5%] ml-0 lg:mt-[143px] reveal-display pb-7 px-4">
       <div>
-        <div className="flex gap-6">
-          <div className="w-[30%] lg:pt-12">
-            <p className="text-4xl leading-[54px]">
+        <div className="md:flex gap-6">
+          <div className="md:w-[30%] lg:pt-12">
+            <p className="xl:text-4xl xl:leading-[54px] md:text-[28px] md:leading-[36px] leading-[32px] text-[24px]">
               Building a logistics platform to grow your{" "}
               <span className="text-[#40A945]">business.</span>
             </p>
@@ -52,8 +52,8 @@ export const Slider = () => {
               </ul>
             </div>
           </div>
-          <div className="ml-32">
-            <div>
+          <div className="md:ml-32">
+            <div className="md:block hidden">
               <Image
                 src={"/assets/swift-home-page.svg"}
                 alt=""
@@ -61,6 +61,17 @@ export const Slider = () => {
                 // className="w-full h-full"
                 width={1000}
                 height={555}
+              />
+            </div>
+
+            <div className="relative md:w-[1000px] md:h-[555px] w-[100%] h-[308px] md:hidden block">
+              <Image
+                src={"/assets/swift-home-page.svg"}
+                alt=""
+                fill={true}
+                className="w-full h-full"
+                // width={1000}
+                // height={555}
               />
             </div>
           </div>

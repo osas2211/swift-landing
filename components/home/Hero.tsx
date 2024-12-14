@@ -77,11 +77,11 @@ export const Hero = ({ tl }: { tl: gsap.core.Timeline }) => {
   }, [])
   return (
     <div
-      className="flex items-center md:gap-9 gap-5 justify-between lg:flex-row flex-col 2xl:w-[82%] lg:w-[95%] w-[100%] mx-auto "
+      className="flex md:items-center md:gap-9 gap-5 justify-between md:flex-row flex-col max-w-[1590px] mx-auto px-4"
       id="home-hero"
     >
-      <div className="2xl:w-[44%] md:w-[50%]">
-        <p className="2xl:text-[76px] 2xl:leading-[90px] lg:text-[60px] lg:leading-[80px] md:text-[54px] md:leading-[70px] text-[32px] leading-[44px] tracking-[-1.5px]">
+      <div className="2xl:w-[44%] md:w-[50%] w-full">
+        <p className="2xl:text-[76px] 2xl:leading-[90px] lg:text-[45px] lg:leading-[65px] md:text-[34px] md:leading-[50px] text-[32px] leading-[44px] tracking-[-1.5px]">
           <span className=" m-0 p-0 inline-block overflow-hidden">
             <span className=" m-0 p-0 inline-block relative up-text">
               <span>
@@ -122,11 +122,11 @@ export const Hero = ({ tl }: { tl: gsap.core.Timeline }) => {
             service.
           </p>
         </div>
-        <div className="flex items-center md:flex-row flex-col md:gap-6 gap-3">
-          <div className="overflow-hidden md:w-auto w-full">
+        <div className="flex items-center xl:flex-row flex-col md:gap-6 gap-3">
+          <div className="overflow-hidden xl:w-auto w-full">
             <Button
               size="large"
-              className="up-text md:w-auto w-full"
+              className="up-text xl:w-auto w-full"
               beforeicon={
                 <Image
                   alt=""
@@ -139,10 +139,10 @@ export const Hero = ({ tl }: { tl: gsap.core.Timeline }) => {
               Download on Playstore
             </Button>
           </div>
-          <div className="overflow-hidden md:w-auto w-full">
+          <div className="overflow-hidden xl:w-auto w-full">
             <Button
               size="large"
-              className="up-text md:w-auto w-full"
+              className="up-text xl:w-auto w-full"
               beforeicon={
                 <Image
                   alt=""

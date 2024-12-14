@@ -2,7 +2,7 @@ import React from "react"
 
 export const SideImageMobile = () => {
   return (
-    <div className="reveal-display-2 md:hidden block">
+    <div className="reveal-display-2 lg:hidden block">
       <svg
         width="388"
         height="472"

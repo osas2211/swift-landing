@@ -18,8 +18,8 @@ export const HomePage = () => {
   return (
     <div id="home-body" className="home-body overflow-x-hidden">
       <Header tl={tl} />
-      <div className="2xl:mt-[180px] mt-[150px]">
-        <div className="md:my-[90px] xl:mb-[250px] my-8 mt-6">
+      <div className="2xl:mt-[180px] md:mt-[150px] mt-[90px]">
+        <div className="md:my-[90px] xl:mb-[250px] my-8 mt-0">
           <Hero tl={tl} />
         </div>
         <div>
