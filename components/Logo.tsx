@@ -95,7 +95,7 @@ export const Logo = ({ tl }: { tl?: gsap.core.Timeline }) => {
   }
   return (
     <>
-      <div id="logo-body">
+      <div id="logo-body" className="relative z-[200]">
         <svg
           width="136"
           height="40"
