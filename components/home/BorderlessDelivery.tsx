@@ -2,7 +2,6 @@
 import React from "react"
 import { Button } from "../utilities/Button"
 import { SmilingGirlImage } from "./SmilingGirlImage"
-import { SmileGirlImageMobile } from "./SmileGirlImageMobile"
 
 export const BorderlessDelivery = () => {
   return (
@@ -42,9 +41,8 @@ export const BorderlessDelivery = () => {
             </div>
           </div>
 
-          <div>
+          <div className="md:-ml-0 -ml-20 md:-mt-0 -mt-20">
             <SmilingGirlImage />
-            <SmileGirlImageMobile />
           </div>
         </div>
       </div>
