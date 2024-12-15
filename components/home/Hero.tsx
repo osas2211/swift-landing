@@ -12,13 +12,15 @@ import { MeetLineMobile } from "./MeetLineMobile"
 gsap.registerPlugin(TextPlugin)
 
 export const Hero = ({ tl }: { tl: gsap.core.Timeline }) => {
+  const timeline = gsap.timeline()
   useEffect(() => {
     // gsap.to(".meet-text", {
     //   text: "Meets",
     //   duration: 1,
     // })
 
-    tl.fromTo("#home-hero", { opacity: 0 }, { opacity: 1, duration: 0.1 })
+    timeline
+      .fromTo("#home-hero", { opacity: 0 }, { opacity: 1, duration: 0.1 })
       .fromTo(".up-text", { y: 120 }, { y: 0, stagger: 0.1, ease: "circ.out" })
       // .set("#image-1", { x: "60%", y: "81%" })
       // .set("#image-2", {

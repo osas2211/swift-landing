@@ -5,10 +5,34 @@ import { useGSAP } from "@gsap/react"
 import Link from "next/link"
 import moment from "moment"
 import { Button } from "./Button"
+import { usePathname } from "next/navigation"
 
 gsap.registerPlugin(useGSAP)
 
 export const MobileNav = () => {
+  const navLinks = [
+    {
+      path: "/",
+      name: "Home",
+    },
+    {
+      path: "",
+      name: "Track",
+    },
+    {
+      path: "",
+      name: "Faqs",
+    },
+    {
+      path: "",
+      name: "About us",
+    },
+    {
+      path: "",
+      name: "Contact",
+    },
+  ]
+  const pathname = usePathname()
   const tl = useRef(gsap.timeline({ paused: true }))
   const container = useRef(null)
   const [showNav, setShowNav] = useState(false)
@@ -127,32 +151,30 @@ export const MobileNav = () => {
         id="mobile-nav"
       >
         <div className="mt-[140px]">
-          <ul className="flex flex-col gap-0 text-[15px] px-6 text-[38px] leading-[47px] tracking-[0.5px] font-[300] uppercase">
-            <li className="overflow-hidden">
-              <Link className="nav-up-text" href={"/"} onClick={toggleNav}>
-                Home
-              </Link>
-            </li>
-            <li className="overflow-hidden">
-              <Link className="nav-up-text" href={"/"} onClick={toggleNav}>
-                Track
-              </Link>
-            </li>
-            <li className="overflow-hidden">
-              <Link className="nav-up-text" href={"/"} onClick={toggleNav}>
-                FAQs
-              </Link>
-            </li>
-            <li className="overflow-hidden">
-              <Link className="nav-up-text" href={"/"} onClick={toggleNav}>
-                About us
-              </Link>
-            </li>
-            <li className="overflow-hidden">
-              <Link className="nav-up-text" href={"/"} onClick={toggleNav}>
-                Contact
-              </Link>
-            </li>
+          <ul className="flex flex-col gap-0 text-[15px] px-5 text-[38px] leading-[47px] tracking-[0.5px] font-[300] uppercase">
+            {navLinks?.map((nav, index) => {
+              const isActive = nav.path === pathname
+              return (
+                <li
+                  className={`overflow-hidden relative ${
+                    isActive ? "font-[300]" : ""
+                  }`}
+                  key={index}
+                >
+                  <Link
+                    className="nav-up-text relative"
+                    href={nav.path}
+                    onClick={toggleNav}
+                  >
+                    <span>{nav.name}</span>
+                    {/* {isActive && (
+                      <div className="absolute top-[50%] left-[0px] translate-[-50%,-50%] bg-secondary w-full h-[5px]"></div>
+                    )} */}
+                  </Link>
+                </li>
+              )
+            })}
+
             <li className="overflow-hidden mt-6">
               <Button variant="primary" size="small" className="nav-up-text">
                 Get started
@@ -161,7 +183,7 @@ export const MobileNav = () => {
           </ul>
         </div>
 
-        <div className="text-xs uppercase grid grid-cols-3 gap-2 p-6 pb-16 font-medium">
+        <div className="text-[12px] uppercase grid grid-cols-[1fr,120px,1fr] gap-2 p-5 pb-16 font-medium">
           <div className="flex flex-col">
             <Link href={""} target="_blank">
               X <span className="text-[10px]">&#8599;</span>
@@ -183,7 +205,7 @@ export const MobileNav = () => {
             <Link href={"mailto:contact@swiftvia.com"} target="_blank">
               contact@swiftvia.com
             </Link>
-            <p>+234 906 6084 602</p>
+            <p>234 906 6084 602</p>
           </div>
 
           <div className="flex justify-end items-end flex-col">

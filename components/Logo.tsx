@@ -7,14 +7,14 @@ export const Logo = ({ tl }: { tl?: gsap.core.Timeline }) => {
   const animation = () => {
     tl &&
       tl
-        .set("#logo-body", {
-          y: "45vh",
-          x: "50vw",
-          xPercent: window?.matchMedia("(max-width: 720px)").matches
-            ? -55
-            : -130,
-        })
-        .set("#logo-svg", { scale: 2 })
+        // .set("#logo-body", {
+        //   y: "45vh",
+        //   x: "50vw",
+        //   xPercent: window?.matchMedia("(max-width: 720px)").matches
+        //     ? -55
+        //     : -130,
+        // })
+        // .set("#logo-svg", { scale: 2 })
         .set("#shapes", {
           rotate: "-180deg",
           x: 20,
