@@ -41,7 +41,7 @@ export const BorderlessDelivery = () => {
             </div>
           </div>
 
-          <div className="md:-ml-0 -ml-20 md:-mt-0 -mt-20">
+          <div className=" md:-mt-0 -mt-20 md:block flex items-center justify-center">
             <SmilingGirlImage />
           </div>
         </div>
