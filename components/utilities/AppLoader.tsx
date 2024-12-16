@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react"
 import { Logo } from "../Logo"
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
+import { RiderIcon } from "../icons/Rider"
 
 export const AppLoader = ({
   setLoading,
@@ -82,15 +83,26 @@ export const AppLoader = ({
           </div>
           {/* <p className="md:text-2xl text-lg w-[50px]">{count}%</p> */}
         </div>
-        <div
-          className="md:w-[450px] w-[90vw] h-[15px] bg-secondary/10 relative loader-screen-details"
-          id="loading-bar"
-        >
+        <div>
           <div
-            style={{ background: "white", width: `${count}%` }}
-            className="absolute top-0 left-0 h-full"
-          />
-          <p className="absolute bottom-[-20px] right-0 text-sm">{count}%</p>
+            className="loader-screen-details"
+            style={{ transform: `translateX(${100 - count}%)` }}
+          >
+            <RiderIcon color="white" />
+          </div>
+          <div
+            className="md:w-[450px] w-[90vw] h-[6px] bg-white relative loader-screen-details"
+            id="loading-bar"
+          >
+            <div
+              style={{
+                background: "rgba(0,0,0,0.6)",
+                width: `${100 - count}%`,
+              }}
+              className="absolute top-0 left-0 h-full"
+            />
+            <p className="absolute bottom-[-20px] right-0 text-sm">{count}%</p>
+          </div>
         </div>
       </div>
     </div>
