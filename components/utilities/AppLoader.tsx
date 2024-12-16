@@ -96,7 +96,7 @@ export const AppLoader = ({
           >
             <div
               style={{
-                background: "rgba(0,0,0,0.6)",
+                background: "rgba(0,0,0,0.4)",
                 width: `${100 - count}%`,
               }}
               className="absolute top-0 left-0 h-full"
