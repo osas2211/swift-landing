@@ -20,7 +20,11 @@ export const Hero = ({ tl }: { tl: gsap.core.Timeline }) => {
     // })
 
     timeline
-      .fromTo("#home-hero", { opacity: 0 }, { opacity: 1, duration: 0.1 })
+      .fromTo(
+        "#home-hero",
+        { opacity: 0 },
+        { opacity: 1, duration: 0.1, delay: -0.5 }
+      )
       .fromTo(".up-text", { y: 120 }, { y: 0, stagger: 0.1, ease: "circ.out" })
       // .set("#image-1", { x: "60%", y: "81%" })
       // .set("#image-2", {

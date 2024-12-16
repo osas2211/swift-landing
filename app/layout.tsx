@@ -3,6 +3,7 @@ import localFont from "next/font/local"
 import "./globals.css"
 import { Header } from "@/components/Header"
 import { Bricolage_Grotesque } from "next/font/google"
+import { AppContainer } from "@/components/utilities/AppContainer"
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -42,7 +43,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${bdo_grotesk.variable} font-bdo antialiased lg:px-0 pb-8 mx-auto overflow-x-hidden`}
       >
-        {children}
+        <AppContainer>{children}</AppContainer>
       </body>
     </html>
   )

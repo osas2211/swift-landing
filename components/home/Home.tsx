@@ -15,7 +15,7 @@ export const HomePage = () => {
 
   const tl = gsap.timeline({})
   useEffect(() => {
-    gsap.to("#home-body", { opacity: 1, duration: 0.1 })
+    gsap.to("#home-body", { opacity: 1, duration: 0.1, delay: -1 })
   }, [])
   return (
     <>
