@@ -29,8 +29,14 @@ export const AppLoader = ({
         })
         .to("#loader-screen-2", {
           clipPath: "polygon(0 0, 100% 0, 100% 0%, 0 0%)",
-          onComplete: function () {
-            setLoading(false)
+          onComplete: function () {},
+          // duration: 1,
+          // ease: "power4.out",
+          onUpdate: function () {
+            const progress = Number(this.progress())
+            if (progress >= 0.95) {
+              setLoading(false)
+            }
           },
         })
     },
@@ -39,6 +45,9 @@ export const AppLoader = ({
     }
   )
   useEffect(() => {
+    // const progress = Number(tl.current.progress() * 100).toFixed(0)
+    // setCount(Number(progress))
+
     const duration = 2000 // Total duration in ms (2 seconds)
     const interval = 20 // Update every 20ms
     const increment = 100 / (duration / interval) // Amount to increment per interval
