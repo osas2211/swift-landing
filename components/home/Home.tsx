@@ -9,6 +9,7 @@ import { HowItWorks } from "./HowItWorks"
 import { SendAndRecieve } from "./SendAndRecieve"
 import { Faqs } from "./Faqs"
 import { BorderlessDelivery } from "./BorderlessDelivery"
+import { Newsletter } from "../utilities/Newsletter"
 
 export const HomePage = () => {
   const [loading, setLoading] = useState(true)
@@ -42,6 +43,9 @@ export const HomePage = () => {
           </div>
           <div>
             <BorderlessDelivery />
+          </div>
+          <div>
+            <Newsletter />
           </div>
         </div>
       </div>
