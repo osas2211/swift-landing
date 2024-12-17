@@ -9,7 +9,7 @@ export const Rectangle = ({ color }: { color?: string }) => {
       viewBox="0 0 83 83"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="newsletter-icon md:scale-[1] scale-[0.8]"
+      className="newsletter-icon md:scale-[1] scale-[0.5]"
     >
       <rect
         x="29.9702"

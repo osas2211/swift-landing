@@ -42,7 +42,7 @@ export const Newsletter = () => {
         <h3 className="md:text-[40px] md:leading-[56px] text-[24px] md:leading-[32px] max-w-[599px] mx-auto font-medium">
           Sign up for our newsletter for weekly updates
         </h3>
-        <p className="text-[#707070] max-w-[517px] mx-auto mt-[19px]">
+        <p className="text-[#707070] max-w-[517px] mx-auto mt-[19px] md:text-[16px] text-sm">
           We send out latest update about our product every week and how to grow
           your business with us. Sign up to receive this update
         </p>
@@ -55,18 +55,18 @@ export const Newsletter = () => {
         <Button className="w-full !rounded-full">Sign up</Button>
       </div>
 
-      <div className="absolute md:top-[-3rem] top-[-2rem] left-[7px]">
+      <div className="absolute md:top-[-3rem] top-[-1.5rem] md:left-[7px] left-[46px]">
         <StarIcon />
       </div>
 
-      <div className="absolute md:top-[-4rem] top-[-2.5rem] right-[7px]">
+      <div className="absolute md:top-[-4rem] top-[3.5rem] right-[7px]">
         <Rectangle />
       </div>
-      <div className="absolute md:top-[-4rem] top-[-2.5rem] left-[50%]">
+      <div className="absolute md:top-[-4rem] top-[-1.5rem] md:left-[50%] left-[70%]">
         <Polygon />
       </div>
 
-      <div className="absolute top-[50%] right-[7px]">
+      <div className="absolute md:top-[50%] top-[55%] right-[7px]">
         <CircleIcon />
       </div>
       <div className="absolute top-[50%] md:left-[-4rem] left-[7px]">
