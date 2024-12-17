@@ -5,9 +5,11 @@ import React, { useEffect } from "react"
 export const Logo = ({
   tl,
   textColor,
+  low_z_index,
 }: {
   tl?: gsap.core.Timeline
   textColor?: string
+  low_z_index?: boolean
 }) => {
   const timeline = gsap.timeline({})
   const animation = () => {
@@ -101,7 +103,7 @@ export const Logo = ({
   }
   return (
     <>
-      <div id="logo-body" className="relative z-[200]">
+      <div id="logo-body" className={low_z_index ? "" : "relative z-[200]"}>
         <svg
           width="136"
           height="40"
