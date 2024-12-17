@@ -16,9 +16,9 @@ export const Newsletter = () => {
     () => {
       tl.current.fromTo(
         ".newsletter-icon",
-        { y: -15, rotate: -1 },
+        { y: -10, rotate: -1 },
         {
-          y: 15,
+          y: 10,
           rotate: 1,
           repeat: Infinity,
           yoyo: true,
