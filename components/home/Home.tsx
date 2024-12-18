@@ -11,6 +11,7 @@ import { Faqs } from "./Faqs"
 import { BorderlessDelivery } from "./BorderlessDelivery"
 import { Newsletter } from "../utilities/Newsletter"
 import { Footer } from "../utilities/Footer"
+import { Testimonials } from "./Testimonials"
 
 export const HomePage = () => {
   const [loading, setLoading] = useState(true)
@@ -44,6 +45,9 @@ export const HomePage = () => {
           </div>
           <div>
             <BorderlessDelivery />
+          </div>
+          <div>
+            <Testimonials />
           </div>
           <div>
             <Newsletter />

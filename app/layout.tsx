@@ -42,11 +42,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${bdo_grotesk.variable} font-bdo antialiased lg:px-0 pb-8 mx-auto overflow-x-hidden`}
+        className={`${geistSans.variable} ${geistMono.variable} ${bdo_grotesk.variable} font-bdo antialiased lg:px-0 pb-8 mx-auto`}
       >
-        <AppContainer>
-          <SmoothScroller>{children}</SmoothScroller>
-        </AppContainer>
+        <SmoothScroller>
+          <AppContainer>{children}</AppContainer>
+        </SmoothScroller>
       </body>
     </html>
   )

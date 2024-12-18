@@ -32,3 +32,11 @@ body {
 #loader-screen-2 {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
+
+.review-cards-scroll {
+  width: auto;
+  white-space: nowrap;
+
+  /* Styling */
+  height: 220px;
+}
