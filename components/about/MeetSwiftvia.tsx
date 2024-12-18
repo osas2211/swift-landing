@@ -3,7 +3,7 @@ import React from "react"
 
 export const MeetSwiftvia = () => {
   return (
-    <div className="md:my-[183px] my-[90px] max-w-[1590px] mx-auto p-4">
+    <div className="md:my-[183px] my-[90px] mb-[70px] max-w-[1590px] mx-auto p-4">
       <p className="text-[#60605E]">Meet SwiftVia</p>
       <h2 className="max-w-[697px] md:text-[64px] md:leading-[62px] text-[24px] leading-[30px] mt-2">
         Redefining And Enhancing Parcel Delivery Across Africa
