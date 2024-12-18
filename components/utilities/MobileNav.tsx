@@ -24,7 +24,7 @@ export const MobileNav = () => {
       name: "Faqs",
     },
     {
-      path: "",
+      path: "/about",
       name: "About us",
     },
     {

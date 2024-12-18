@@ -5,7 +5,7 @@ import Link from "next/link"
 import { Button } from "./utilities/Button"
 import { MobileNav } from "./utilities/MobileNav"
 
-export const Header = ({ tl }: { tl: gsap.core.Timeline }) => {
+export const Header = ({ tl }: { tl?: gsap.core.Timeline }) => {
   useEffect(() => {
     // tl.fromTo(".up-text", { y: 120 }, { y: 0, stagger: 0.1 })
   }, [])
@@ -28,7 +28,7 @@ export const Header = ({ tl }: { tl: gsap.core.Timeline }) => {
               <Link href={"/"}>FAQs</Link>
             </li>
             <li>
-              <Link href={"/"}>About us</Link>
+              <Link href={"/about"}>About us</Link>
             </li>
             <li>
               <Link href={"/"}>Contact</Link>
