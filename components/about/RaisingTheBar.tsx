@@ -16,7 +16,7 @@ export const RaisingTheBar = () => {
         <h3 className="max-w-[528px] md:text-[40px] md:leading-[56px] text-[24px] leading-[32px]">
           Raising the Bar in Parcel Delivery Across Africa
         </h3>
-        <p className="max-w-[657px] md:text-[18px] md:leading-[26px] text-[#D7D8D3] md:mt-[50px] mt-[20px]">
+        <p className="max-w-[657px] md:text-[18px] md:leading-[26px] text-[#D7D8D3] md:mt-[50px] mt-[20px] text-sm">
           SwiftVia sets the standard in parcel handling and logistics with our
           dynamic platform, designed to deliver the best experience and outcomes
           for businesses and customers alike. From start to finish, we&apos;re
