@@ -14,7 +14,9 @@ export const Testimonials = () => {
         </p>
       </div>
 
-      <div>{/* <Reviews /> */}</div>
+      <div>
+        <Reviews />
+      </div>
     </div>
   )
 }

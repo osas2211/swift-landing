@@ -13,8 +13,8 @@ export const XIcon = ({ color }: { color?: string }) => {
       <path
         d="M2.5 17.5L8.79033 11.2097M8.79033 11.2097L2.5 2.5H6.66667L11.2097 8.79033M8.79033 11.2097L13.3333 17.5H17.5L11.2097 8.79033M17.5 2.5L11.2097 8.79033"
         stroke={color || "#454544"}
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   )
