@@ -6,7 +6,7 @@ import { MoneyTransfer } from "../icons/MoneyTransfer"
 
 export const OurGoal = () => {
   return (
-    <div className="md:my-[183px] my-[70px] max-w-[1590px] mx-auto p-4">
+    <div className="md:my-[153px] my-[70px] max-w-[1590px] mx-auto p-4">
       <div className="text-center">
         <p className="text-[#60605E]">Our Goal</p>
         <h2 className="max-w-[741px] mx-auto md:text-[64px] md:leading-[84px] text-[24px] leading-[30px] mt-2 font-medium">
@@ -20,7 +20,7 @@ export const OurGoal = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-10 md:mt-[76px] max-w-[845px] mx-auto">
         <div className="row-span-2 bg-[#CEFBD0] py-5 px-[18px] rounded-[32px]">
-          <div className="relative md:h-[331px] md:w-[331px]">
+          <div className="relative h-[331px] md:w-[331px] w-full">
             <Image
               alt=""
               src={"/assets/team-success.svg"}

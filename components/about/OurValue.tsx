@@ -1,5 +1,5 @@
 "use client"
-import React, { ReactNode, useEffect } from "react"
+import React, { ReactNode, use, useEffect } from "react"
 import { Tabs } from "../utilities/Tabs"
 import { MoneyIcon } from "../icons/MoneyIcon"
 import { PercentIcon } from "../icons/PercentIcon"
@@ -26,7 +26,7 @@ export const OurValue = () => {
     },
   ]
   return (
-    <div className="md:my-[183px] my-[70px] ">
+    <div className="md:my-[153px] my-[70px] ">
       <div className="max-w-[1590px] mx-auto p-4">
         <div>
           <p className="text-[#60605E]">Our Value</p>
@@ -50,6 +50,9 @@ export const OurValue = () => {
 const CustomerTab = () => {
   const boxes = gsap.utils.toArray(".value-card"),
     loop = horizontalLoop(boxes, { paused: true })
+  useEffect(() => {
+    // loop.play()
+  }, [])
   const [hasMoved, setHasMoved] = React.useState(false)
   const dots = [0, 2]
   const [activeDot, setActiveDot] = React.useState(0)
