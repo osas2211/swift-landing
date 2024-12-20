@@ -4,7 +4,7 @@ import { Reviews } from "./Reviews"
 
 export const Testimonials = () => {
   return (
-    <div className="my-[153px]">
+    <div className="md:my-[153px] my-[70px]">
       <div className="max-w-[1590px] mx-auto p-4">
         <div className="bg-[#F7F8F3] text-sm text-[#999A97] py-2 px-3 rounded-full inline-block">
           <p>Testimonials</p>
