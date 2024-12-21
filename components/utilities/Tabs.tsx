@@ -41,7 +41,7 @@ export const Tabs = ({
                       variant === "light"
                         ? "bg-[#ECECEC] text-[#000]"
                         : "bg-[#000] text-white"
-                    } rounded-full md:w-[108px] w-[80px]`
+                    } rounded-full `
                   : `${variant === "light" ? "text-[#999A97]" : "text-[#000]"}`
               } py-[11px] text-center text-xs w-[108px] cursor-pointer transition-all`}
             >
