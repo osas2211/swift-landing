@@ -49,13 +49,13 @@ export const Reviews = () => {
     // Animate the slider
     gsap.to(cardsContainer, {
       x: `-${totalCards * 265}px`, // Width of each card + gap (200px + 16px)
-      duration: 17,
+      duration: 25,
       ease: "linear",
       repeat: -1,
     })
     gsap.to(cardsContainer2, {
       x: `-${totalCards2 * 265}px`, // Width of each card + gap (200px + 16px)
-      duration: 20,
+      duration: 30,
       ease: "linear",
       repeat: -1,
       modifiers: {
