@@ -1,6 +1,9 @@
 "use client"
 import React from "react"
+import { SearchIcon } from "../icons/Search"
+import { Tabs } from "../utilities/Tabs"
 import { Accordion } from "../utilities/Accordion"
+
 const items = [
   {
     title: "What is SwiftVia?",
@@ -40,14 +43,44 @@ const items = [
   },
 ]
 
-export const Faqs = () => {
+export const Questions = () => {
+  const tabItems = [
+    {
+      title: "All",
+      children: <Accordion items={[...items, ...items, ...items]} />,
+    },
+    {
+      title: "General",
+      children: <Accordion items={[...items, ...items]} />,
+    },
+    {
+      title: "Customer",
+      children: <Accordion items={[...items]} />,
+    },
+    {
+      title: "Rider",
+      children: <Accordion items={[...items]} />,
+    },
+    {
+      title: "Logistic",
+      children: <Accordion items={[...items]} />,
+    },
+  ]
   return (
-    <div className="md:my-[123px] my-[70px] max-w-[1100px] mx-auto px-4">
-      <p className="md:text-[40px] text-[24px] mb-10 text-center">
-        Frequently Asked Question
-      </p>
-      <div>
-        <Accordion items={items} />
+    <div className="md:my-[133px] my-[50px] max-w-[1590px] mx-auto p-4">
+      <div className="flex items-center justify-center gap-4 flex-col max-w-[640px] mx-auto md:mt-[39px] mt-[23px] relative z-[1]">
+        <input
+          className="w-full outline-none bg-[#F7F8F3] h-[48px] inline-block rounded-full px-[20px] md:pl-[75px] pl-[50px] py-[14px] text-[14px]"
+          placeholder="Search for question"
+        />
+        <div className="absolute top-[50%] md:left-[40px] left-[25px] transform -translate-y-1/2">
+          <SearchIcon />
+        </div>
+      </div>
+      <div className="md:my-[48px] my-[25px]">
+        <div className="max-w-[1077px] mx-auto">
+          <Tabs tabItems={tabItems} centered variant="light" maxWidth="470px" />
+        </div>
       </div>
     </div>
   )

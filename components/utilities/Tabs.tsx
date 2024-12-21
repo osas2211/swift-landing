@@ -7,11 +7,28 @@ type TabItem = {
   children: ReactNode
 }
 
-export const Tabs = ({ tabItems }: { tabItems: TabItem[] }) => {
+export const Tabs = ({
+  tabItems,
+  centered,
+  variant,
+  maxWidth,
+}: {
+  tabItems: TabItem[]
+  centered?: boolean
+  variant?: "dark" | "light"
+  maxWidth?: string
+}) => {
   const [active, setActive] = useState(0)
   return (
     <div className="">
-      <div className="bg-[#EFEFEF] rounded-full px-[9px] py-[5px] w-[300px] flex md:mb-[38px] mb-[30px]">
+      <div
+        className={`${
+          variant === "light" ? "bg-[#F7F8F3]" : "bg-[#EFEFEF]"
+        } rounded-full px-[9px] py-[5px] flex md:mb-[38px] mb-[30px] ${
+          centered ? "mx-auto" : ""
+        }`}
+        style={{ maxWidth: maxWidth || "300px" }}
+      >
         {tabItems.map((item, index) => {
           const isActive = index === active
           return (
@@ -20,8 +37,12 @@ export const Tabs = ({ tabItems }: { tabItems: TabItem[] }) => {
               onClick={() => setActive(index)}
               className={`${
                 isActive
-                  ? "bg-[#000] rounded-full text-white md:w-[108px] w-[80px]"
-                  : ""
+                  ? `${
+                      variant === "light"
+                        ? "bg-[#ECECEC] text-[#000]"
+                        : "bg-[#000] text-white"
+                    } rounded-full md:w-[108px] w-[80px]`
+                  : `${variant === "light" ? "text-[#999A97]" : "text-[#000]"}`
               } py-[11px] text-center text-xs w-[108px] cursor-pointer transition-all`}
             >
               {item.title}

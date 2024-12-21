@@ -1,47 +1,15 @@
 "use client"
-import React, { useEffect, useState } from "react"
+import React, { ReactNode, useEffect, useState } from "react"
 import gsap from "gsap"
 
-const items = [
-  {
-    title: "What is SwiftVia?",
-    content: (
-      <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores
-        optio ducimus dolor quaerat sit, natus est odio cum sunt, accusantium
-        pariatur dignissimos maiores dolores provident placeat iusto non
-        perspiciatis magnam.
-      </div>
-    ),
-  },
-  {
-    title: "How can I register as a logistics partner with SwiftVia?",
-    content: (
-      <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores
-        optio ducimus dolor quaerat sit, natus est odio cum sunt, accusantium
-        pariatur dignissimos maiores dolores provident placeat iusto non
-        perspiciatis magnam.
-      </div>
-    ),
-  },
-  {
-    title: "How does SwiftVia ensure package security during delivery?",
-    content: (
-      <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores
-        optio ducimus dolor quaerat sit, natus est odio cum sunt, accusantium
-        pariatur dignissimos maiores dolores provident placeat iusto non
-        perspiciatis magnam. Lorem ipsum dolor sit amet consectetur adipisicing
-        elit. Asperiores optio ducimus dolor quaerat sit, natus est odio cum
-        sunt, accusantium pariatur dignissimos maiores dolores provident placeat
-        iusto non perspiciatis magnam.
-      </div>
-    ),
-  },
-]
-
-export const Accordion = () => {
+export const Accordion = ({
+  items,
+}: {
+  items: {
+    title: string
+    content: ReactNode
+  }[]
+}) => {
   const [active, setActive] = useState<number | undefined>()
   useEffect(() => {
     gsap.set(".accordion-content", { translateY: "-120%" })

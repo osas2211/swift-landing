@@ -20,7 +20,7 @@ export const MobileNav = () => {
       name: "Track",
     },
     {
-      path: "",
+      path: "/faqs",
       name: "Faqs",
     },
     {

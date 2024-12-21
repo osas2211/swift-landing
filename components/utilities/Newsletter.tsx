@@ -39,7 +39,7 @@ export const Newsletter = () => {
       ref={scope}
     >
       <div className="text-center pt-7 relative z-[1]">
-        <h3 className="md:text-[40px] md:leading-[56px] text-[24px] md:leading-[32px] max-w-[599px] mx-auto font-medium">
+        <h3 className="md:text-[40px] md:leading-[56px] text-[24px] leading-[32px] max-w-[599px] mx-auto font-medium">
           Sign up for our newsletter for weekly updates
         </h3>
         <p className="text-[#707070] max-w-[517px] mx-auto mt-[19px] md:text-[16px] text-sm">

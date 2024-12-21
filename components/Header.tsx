@@ -25,7 +25,7 @@ export const Header = ({ tl }: { tl?: gsap.core.Timeline }) => {
               <Link href={"/"}>Track</Link>
             </li>
             <li>
-              <Link href={"/"}>FAQs</Link>
+              <Link href={"/faqs"}>FAQs</Link>
             </li>
             <li>
               <Link href={"/about"}>About us</Link>
