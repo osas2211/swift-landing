@@ -9,7 +9,7 @@ import { OtherContacts } from "../utilities/OtherContacts"
 
 export const Faqs = () => {
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <NeedHelp />
       <Questions />
       <OtherQuestions />
