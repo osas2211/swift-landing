@@ -4,7 +4,7 @@ import React from "react"
 
 export const OurStory = () => {
   return (
-    <div className="md:my-[183px] my-[70px] max-w-[1590px] mx-auto p-4">
+    <div className="md:my-[183px] my-[70px] max-w-[1590px] mx-auto p-4 lg:py-[90px] py-6 lg:px-[70px] px-4">
       <div className="flex md:flex-row flex-col md:gap-10 gap-5">
         <div className="xl:w-[35%] md:w-[45%] w-full">
           <p className="text-[#60605E]">Our Story</p>

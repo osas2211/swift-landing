@@ -12,7 +12,7 @@ export const RaisingTheBar = () => {
   }, [])
   return (
     <div className="bg-[#123014] lg:p-[70px] lg:py-[80px] md:p-[40px] py-5 text-white relative overflow-hidden">
-      <div className="max-w-[1590px] mx-auto p-4 relative z-[1] md:min-h-auto min-h-[378px]">
+      <div className="max-w-[1590px] mx-auto p-4 relative z-[1] md:min-h-auto min-h-[378px] lg:py-[90px] py-6 lg:px-[70px] px-4">
         <h3 className="max-w-[528px] md:text-[40px] md:leading-[56px] text-[34px] leading-[42px]">
           Raising the Bar in Parcel Delivery Across Africa
         </h3>

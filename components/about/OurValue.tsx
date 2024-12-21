@@ -27,7 +27,7 @@ export const OurValue = () => {
   ]
   return (
     <div className="md:my-[153px] my-[70px] ">
-      <div className="max-w-[1590px] mx-auto p-4">
+      <div className="max-w-[1590px] mx-auto p-4 lg:py-[90px] py-6 lg:px-[70px] px-4">
         <div>
           <p className="text-[#60605E]">Our Value</p>
           <h2 className="max-w-[631px] md:text-[64px] md:leading-[84px] text-[24px] leading-[30px] mt-2 font-medium">
@@ -40,7 +40,7 @@ export const OurValue = () => {
           </p>
         </div>
       </div>
-      <div className="2xl:ml-[9%] lg:ml-[2.5%] pl-4 md:pl-0 overflow-hidden">
+      <div className="2xl:ml-[11%] lg:ml-[2.5%] pl-4 md:pl-0 overflow-hidden">
         <Tabs {...{ tabItems }} />
       </div>
     </div>

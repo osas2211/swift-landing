@@ -6,7 +6,7 @@ import { MoneyTransfer } from "../icons/MoneyTransfer"
 
 export const OurGoal = () => {
   return (
-    <div className="md:my-[153px] my-[70px] max-w-[1590px] mx-auto p-4">
+    <div className="md:my-[153px] my-[70px] max-w-[1590px] mx-auto p-4 lg:py-[90px] py-6 lg:px-[70px] px-4">
       <div className="text-center">
         <p className="text-[#60605E]">Our Goal</p>
         <h2 className="max-w-[741px] mx-auto md:text-[64px] md:leading-[84px] text-[24px] leading-[30px] mt-2 font-medium">
