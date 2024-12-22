@@ -66,7 +66,7 @@ export const Hero = () => {
         <p className="mb-6 md:mb-[57px] md:text-[18px] text-center">
           Learn more about our product
         </p>
-        <div className="relative">
+        <div className="relative max-w-[1120px] md:max-w-[1280px] mx-auto">
           <video
             className="w-[100%] h-[320px] md:w-[100%] md:h-[630px] lg:h-[720px] object-cover rounded-xl"
             autoPlay
