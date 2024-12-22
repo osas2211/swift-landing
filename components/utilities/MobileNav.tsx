@@ -177,7 +177,12 @@ export const MobileNav = () => {
 
             <li className="overflow-hidden mt-6">
               <Link href={"/get-started"}>
-                <Button variant="primary" size="small" className="nav-up-text">
+                <Button
+                  variant="primary"
+                  size="small"
+                  className="nav-up-text"
+                  onClick={toggleNav}
+                >
                   Get started
                 </Button>
               </Link>
