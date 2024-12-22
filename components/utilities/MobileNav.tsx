@@ -16,7 +16,7 @@ export const MobileNav = () => {
       name: "Home",
     },
     {
-      path: "",
+      path: "/track",
       name: "Track",
     },
     {
@@ -28,7 +28,7 @@ export const MobileNav = () => {
       name: "About us",
     },
     {
-      path: "",
+      path: "/contact",
       name: "Contact",
     },
   ]
@@ -176,9 +176,11 @@ export const MobileNav = () => {
             })}
 
             <li className="overflow-hidden mt-6">
-              <Button variant="primary" size="small" className="nav-up-text">
-                Get started
-              </Button>
+              <Link href={"/get-started"}>
+                <Button variant="primary" size="small" className="nav-up-text">
+                  Get started
+                </Button>
+              </Link>
             </li>
           </ul>
         </div>

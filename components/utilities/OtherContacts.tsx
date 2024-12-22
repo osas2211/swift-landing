@@ -5,9 +5,14 @@ import { WhatsappIcon } from "../icons/Whatsapp"
 import { XIcon } from "../icons/XIcon"
 import Link from "next/link"
 
-export const OtherContacts = () => {
+export const OtherContacts = ({ showText }: { showText?: boolean }) => {
   return (
     <div className="lg:py-[90px] py-6 lg:px-[70px] px-4 md:my-[153px] my-[70px] max-w-[1590px] mx-auto">
+      {showText && (
+        <p className="text-[15px] md:text-lg md:mb-[70px] mb-8 text-center">
+          Prefer alternative methods
+        </p>
+      )}
       <div className="grid md:grid-cols-3 grid-cols-1 md:gap-5 gap-4">
         <div className="bg-[#CEFBD0] px-5 py-4 md:px-[30px] md:py-[20px] md:pb-8 rounded-xl">
           <div className="inline-flex bg-white justify-center items-center rounded-lg h-12 w-12 mb-[18px]">
