@@ -4,7 +4,7 @@ import { Button } from "../utilities/Button"
 
 export const TrackingHero = () => {
   return (
-    <div className="text-center max-w-[1590px] md:my-[183px] my-[140px] md:px-[70px] px-4">
+    <div className="text-center max-w-[1590px] mx-auto md:my-[183px] my-[140px] md:px-[70px] px-4">
       <div className="mb-7 md:mb-14">
         <h2 className="md:text-[64px] md:leading-[82px] text-[24px] leading-[30px] font-normal">
           Track Your Order
