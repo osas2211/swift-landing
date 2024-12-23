@@ -1,15 +1,15 @@
 "use client"
-import React, { useEffect, useRef, useState } from "react"
+import React, { useContext, useEffect, useRef, useState } from "react"
 import { Logo } from "../Logo"
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import { RiderIcon } from "../icons/Rider"
+import { LoadingContext } from "@/context/loadingContext"
+import { useLoader } from "@/hooks/useLoader"
 
-export const AppLoader = ({
-  setLoading,
-}: {
-  setLoading: React.Dispatch<React.SetStateAction<boolean>>
-}) => {
+export const AppLoader = ({}: {}) => {
+  const { loading, setLoading } = useLoader()
+
   const tl = useRef(gsap.timeline({ paused: true }))
   const container = useRef(null)
 
