@@ -1,6 +1,9 @@
 "use client"
 import React, { ReactNode, useEffect, useState } from "react"
 import gsap from "gsap"
+import { ScrollTrigger } from "gsap/all"
+
+gsap.registerPlugin(ScrollTrigger)
 
 export const Accordion = ({
   items,
@@ -14,6 +17,18 @@ export const Accordion = ({
   useEffect(() => {
     gsap.set(".accordion-content", { translateY: "-120%" })
     gsap.set(".accordion-content-container", { height: 0, marginTop: 0 })
+    gsap.fromTo(
+      ".accordion-header",
+      { x: "120%", opacity: 0 },
+      {
+        x: 0,
+        opacity: 1,
+        stagger: 0.3,
+        ease: "bounce.out",
+        duration: 0.5,
+        scrollTrigger: ".accordion-header",
+      }
+    )
   }, [])
   const showItem = (index: number) => {
     gsap.to(`.accordion-plus`, {
@@ -86,12 +101,12 @@ export const Accordion = ({
   }
   return (
     <>
-      <div className="space-y-5">
+      <div className="space-y-5" id="swift-accordion">
         {items?.map((item, index) => {
           const isActive = index === active
           return (
             <div key={index} className=" overflow-hidden">
-              <div className="bg-secondary rounded-lg transition-all relative z-[20]">
+              <div className="bg-secondary rounded-lg transition-all relative z-[20] accordion-header">
                 <div
                   onClick={() => {
                     showItem(index)
