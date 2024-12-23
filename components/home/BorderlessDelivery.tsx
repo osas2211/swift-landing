@@ -5,9 +5,9 @@ import { SmilingGirlImage } from "./SmilingGirlImage"
 
 export const BorderlessDelivery = () => {
   return (
-    <div className="bg-[#123014] lg:p-[70px] md:p-[40px] md:p-5 py-5 text-white">
-      <div className="max-w-[1590px] mx-auto p-4">
-        <div className="flex md:flex-row flex-col gap-3 justify-between">
+    <div className="bg-[#123014] md:p-[70px] px-4 py-5 text-white">
+      <div className="max-w-[1590px] mx-auto p-4 md:px-[70px]">
+        <div className="flex md:flex-row flex-col gap-7 justify-between">
           <div className="max-w-[680px] md:min-h-[560px] flex flex-col justify-between">
             <div>
               <p className="mb-[52px] lg:text-[64px] lg:leading-[84px] md:text-[40px] leading-[58px] text-[36px] leading-[54px] max-w-[672px]">
@@ -41,7 +41,7 @@ export const BorderlessDelivery = () => {
             </div>
           </div>
 
-          <div className=" md:-mt-0 -mt-20 md:block flex items-center justify-center">
+          <div className=" md:-mt-0 -mt-10 md:block flex items-center justify-center">
             <SmilingGirlImage />
           </div>
         </div>

@@ -11,7 +11,7 @@ export const Header = ({ tl }: { tl?: gsap.core.Timeline }) => {
   }, [])
   return (
     <div className="fixed top-0 left-0 w-full bg-white z-[100]">
-      <div className="py-4 w-full flex items-center justify-between 2xl:w-[82%] lg:w-[95%] mx-auto md:px-0 pr-4">
+      <div className="py-4 w-full flex items-center justify-between max-w-[1590px] mx-auto pr-4 md:px-[70px] px-4 md:pl-[60px]">
         <div>
           <Logo tl={tl} />
         </div>

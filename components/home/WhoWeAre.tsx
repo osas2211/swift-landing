@@ -17,7 +17,7 @@ export const WhoWeAre = () => {
           sustainable way—so every journey feels like progress.
         </p>
       </div>
-      <div className="bg-secondary px-4 py-6">
+      <div className="bg-secondary px-4 py-6 md:px-[70px]">
         <div className="flex md:items-center md:flex-row flex-col gap-7 justify-between max-w-[1590px] mx-auto md:py-[59px]">
           <div className="md:w-[44%]">
             <p className="md:text-[40px] md:leading-[54px] text-[24px] leading-[32px] font-semibold">

@@ -4,7 +4,7 @@ import React from "react"
 
 export const SendAndRecieve = () => {
   return (
-    <div className="md:my-[123px] my-[70px] max-w-[1590px] mx-auto w-[100%] mx-auto px-4">
+    <div className="md:my-[123px] my-[70px] max-w-[1590px] mx-auto w-[100%] md:px-[70px] px-4">
       <p className="md:text-[58px] md:leading-[74px] text-[36px] leading-[54px] max-w-[627px]">
         Send & Receive Package Anywhere{" "}
       </p>

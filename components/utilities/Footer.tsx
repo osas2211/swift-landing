@@ -9,7 +9,7 @@ export const Footer = () => {
   return (
     <>
       <div className="md:mt-[153px] mt-[50px] relative border-y-[1px] border-y-[#F1F1F1] py-6 md:py-[60px]">
-        <div className="grid md:grid-cols-[2fr,4fr] gap-2 pb-[4px] max-w-[1590px] mx-auto px-4">
+        <div className="grid md:grid-cols-[2fr,4fr] gap-2 pb-[4px] max-w-[1590px] mx-auto px-4 md:px-[70px]">
           <div className="mb-[64px]">
             <Logo low_z_index />
           </div>

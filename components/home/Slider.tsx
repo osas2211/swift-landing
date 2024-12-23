@@ -8,16 +8,18 @@ import Image from "next/image"
 
 export const Slider = () => {
   return (
-    <div className="w-full 2xl:ml-[9%] lg:ml-[2.5%] ml-0 lg:mt-[143px] reveal-display pb-7 px-4">
+    <div className="lg:mt-[143px] reveal-display pb-7 md:px-[70px] px-4 max-w-[1590px] mx-auto">
       <div>
-        <div className="md:flex gap-6">
-          <div className="md:w-[30%] lg:pt-12">
-            <p className="xl:text-4xl xl:leading-[54px] md:text-[28px] md:leading-[36px] leading-[32px] text-[24px]">
-              Building a logistics platform to grow your{" "}
-              <span className="text-[#40A945]">business.</span>
-            </p>
+        <div className="md:flex gap-6 md:gap-20">
+          <div className="lg:pt-12">
             <div className="overflow-hidden">
-              <p className="md:my-[27px] my-5 text-[#7C7C7A] up-text md:text-[16px] text-sm">
+              <p className="xl:text-4xl xl:leading-[54px] md:text-[28px] md:leading-[36px] leading-[32px] text-[24px] max-w-[607px]">
+                Building a logistics platform to grow your{" "}
+                <span className="text-[#40A945]">business.</span>
+              </p>
+            </div>
+            <div className="overflow-hidden">
+              <p className="md:my-[27px] my-5 text-[#7C7C7A] up-text md:text-[16px] text-sm max-w-[607px]">
                 Grow your logistics business with us. Our platform offers a
                 comprehensive dashboard to track and optimize your performance.
               </p>
@@ -52,7 +54,7 @@ export const Slider = () => {
               </ul>
             </div>
           </div>
-          <div className="md:ml-32">
+          <div className="md:-mr-64">
             <div className="md:block hidden">
               <Image
                 src={"/assets/swift-home-page.svg"}

@@ -88,7 +88,7 @@ export const Hero = ({ tl }: { tl: gsap.core.Timeline }) => {
   }, [loading])
   return (
     <div
-      className="flex md:items-center md:gap-9 gap-5 justify-between md:flex-row flex-col max-w-[1590px] mx-auto px-4"
+      className="flex md:items-center md:gap-9 gap-5 justify-between md:flex-row flex-col max-w-[1590px] mx-auto md:px-[70px] px-4"
       id="home-hero"
       ref={scope}
     >

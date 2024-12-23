@@ -1503,8 +1503,8 @@ export const MapSvg = () => {
           y2="246.553"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.186372" stop-color="#00C767" />
-          <stop offset="1" stop-color="#00B509" />
+          <stop offset="0.186372" stopColor="#00C767" />
+          <stop offset="1" stopColor="#00B509" />
         </linearGradient>
       </defs>
     </svg>
