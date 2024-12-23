@@ -1,5 +1,5 @@
 "use client"
-import React, { ReactNode, use, useEffect } from "react"
+import React, { ReactNode, use, useEffect, useRef } from "react"
 import { Tabs } from "../utilities/Tabs"
 import { MoneyIcon } from "../icons/MoneyIcon"
 import { PercentIcon } from "../icons/PercentIcon"
@@ -8,7 +8,6 @@ import { PercelIcon2 } from "../icons/PercelIcon"
 import { NearRiderIcon } from "../icons/NearRiderIcon"
 import { horizontalLoop } from "@/helpers/horizontalScrollHelper"
 import gsap from "gsap"
-import { duration } from "moment"
 
 export const OurValue = () => {
   const tabItems = [
@@ -48,11 +47,9 @@ export const OurValue = () => {
 }
 
 const CustomerTab = () => {
-  const boxes = gsap.utils.toArray(".value-card"),
-    loop = horizontalLoop(boxes, { paused: true })
-  useEffect(() => {
-    // loop.play()
-  }, [])
+  const boxes = useRef<(HTMLDivElement | null)[]>([])
+  // const boxes = Array.from(document?.querySelectorAll(".value-card"))
+  const loop = horizontalLoop(boxes.current, { paused: true })
   const [hasMoved, setHasMoved] = React.useState(false)
   const dots = [0, 2]
   const [activeDot, setActiveDot] = React.useState(0)
@@ -97,21 +94,30 @@ const CustomerTab = () => {
   return (
     <div>
       <div className="flex w-[max-content]">
-        {items.map((item, index) => (
-          <div key={index} className="!pr-5 value-card">
-            <div className="items-center gap-4 inline-block bg-[#CEFBD0] w-[309px] h-[296px] p-4 md:py-6 md:px-[18px] rounded-[12px] mb-4">
-              <div className="w-[44px] h-[44px] bg-[#FFFFFF] flex items-center justify-center rounded-full">
-                {item.icon}
-              </div>
-              <div className="mt-[48px]">
-                <h3 className="md:text-[18px] md:leading-[26px] font-medium mb-4">
-                  {item.title}
-                </h3>
-                <p className="text-[#454544] text-sm leading-5">{item.body}</p>
+        {items.map((item, index) => {
+          boxes.current.push(null)
+          return (
+            <div
+              key={index}
+              className="!pr-5 value-card"
+              ref={(el) => (boxes.current[index] = el) as any}
+            >
+              <div className="items-center gap-4 inline-block bg-[#CEFBD0] w-[309px] h-[296px] p-4 md:py-6 md:px-[18px] rounded-[12px] mb-4">
+                <div className="w-[44px] h-[44px] bg-[#FFFFFF] flex items-center justify-center rounded-full">
+                  {item.icon}
+                </div>
+                <div className="mt-[48px]">
+                  <h3 className="md:text-[18px] md:leading-[26px] font-medium mb-4">
+                    {item.title}
+                  </h3>
+                  <p className="text-[#454544] text-sm leading-5">
+                    {item.body}
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          )
+        })}
       </div>
       <div className="flex items-center justify-between gap-[18px] md:mt-16 mt-5 max-w-[1590px] mx-auto p-4">
         <div></div>
