@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect } from "react"
+import React, { useEffect, useRef } from "react"
 import { MeetLine } from "./MeetLine"
 import gsap from "gsap"
 import TextPlugin from "gsap/TextPlugin"
@@ -8,89 +8,89 @@ import Image from "next/image"
 import { SideImage } from "./SideImage"
 import { SideImageMobile } from "./SideImageMobile"
 import { MeetLineMobile } from "./MeetLineMobile"
+import { useGSAP } from "@gsap/react"
+import { useLoader } from "@/hooks/useLoader"
 
 gsap.registerPlugin(TextPlugin)
 
 export const Hero = ({ tl }: { tl: gsap.core.Timeline }) => {
-  const timeline = gsap.timeline()
+  const timeline = useRef(gsap.timeline({ paused: true }))
+  const scope = useRef(null)
+  useGSAP(
+    () => {
+      timeline.current
+        .fromTo(
+          ".up-text-nav",
+          { y: 120 },
+          { y: 0, stagger: 0.1, ease: "circ.out" }
+        )
+        .fromTo(
+          ".up-text",
+          { y: 120 },
+          { y: 0, stagger: 0.1, ease: "circ.out" },
+          "<"
+        )
+        .fromTo(
+          ".reveal-display",
+          { opacity: 0 },
+          { opacity: 1, duration: 0.3, ease: "circ.out", stagger: 0.2 },
+          "<-0.03"
+        )
+        .fromTo(
+          ".reveal-display-2",
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 1.2, ease: "expo.out" }
+        )
+        .fromTo(
+          "#image-1",
+          { x: "60%", y: "81%" },
+          {
+            x: "0%",
+            y: "0%",
+            duration: 0.4,
+            ease: "circ.out",
+          },
+          "<"
+        )
+        .fromTo(
+          "#image-2",
+          {
+            x: "-100%",
+            y: "50%",
+          },
+          {
+            x: "0%",
+            y: "0%",
+            duration: 0.4,
+            ease: "circ.out",
+          },
+          "<"
+        )
+        .fromTo(
+          "#image-3",
+          { x: "10%", y: "-80%" },
+          {
+            x: "0%",
+            y: "0%",
+            duration: 0.4,
+            ease: "circ.out",
+          },
+          "<"
+        )
+    },
+    { scope }
+  )
+  const { loading } = useLoader()
   useEffect(() => {
-    // gsap.to(".meet-text", {
-    //   text: "Meets",
-    //   duration: 1,
-    // })
-
-    timeline
-      // .fromTo("#home-hero", { opacity: 0 }, { opacity: 1, duration: 0.1 })
-      .fromTo(
-        ".up-text-nav",
-        { y: 120 },
-        { y: 0, stagger: 0.1, ease: "circ.out" }
-      )
-      .fromTo(
-        ".up-text",
-        { y: 120 },
-        { y: 0, stagger: 0.1, ease: "circ.out" },
-        "<"
-      )
-      // .set("#image-1", { x: "60%", y: "81%" })
-      // .set("#image-2", {
-      //   x: "-100%",
-      //   y: "50%",
-      // })
-      // .set("#image-3", { x: "10%", y: "-80%" })
-      .fromTo(
-        ".reveal-display",
-        { opacity: 0 },
-        { opacity: 1, duration: 0.3, ease: "circ.out", stagger: 0.2 },
-        "<-0.03"
-      )
-      .fromTo(
-        ".reveal-display-2",
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 1.2, ease: "expo.out" }
-      )
-      .fromTo(
-        "#image-1",
-        { x: "60%", y: "81%" },
-        {
-          x: "0%",
-          y: "0%",
-          duration: 0.4,
-          ease: "circ.out",
-          // delay: 3,
-        },
-        "<"
-      )
-      .fromTo(
-        "#image-2",
-        {
-          x: "-100%",
-          y: "50%",
-        },
-        {
-          x: "0%",
-          y: "0%",
-          duration: 0.4,
-          ease: "circ.out",
-        },
-        "<"
-      )
-      .fromTo(
-        "#image-3",
-        { x: "10%", y: "-80%" },
-        {
-          x: "0%",
-          y: "0%",
-          duration: 0.4,
-          ease: "circ.out",
-        },
-        "<"
-      )
-  }, [])
+    if (!loading) {
+      timeline.current.play()
+    }
+  }, [loading])
   return (
     <div
       className="flex md:items-center md:gap-9 gap-5 justify-between md:flex-row flex-col max-w-[1590px] mx-auto px-4"
       id="home-hero"
+      ref={scope}
     >
       <div className="2xl:w-[44%] md:w-[50%] w-full">
         <p className="2xl:text-[76px] 2xl:leading-[90px] lg:text-[45px] lg:leading-[65px] md:text-[34px] md:leading-[50px] text-[32px] leading-[44px] tracking-[-1.5px]">

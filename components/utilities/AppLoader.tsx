@@ -30,14 +30,8 @@ export const AppLoader = ({
         })
         .to("#loader-screen-2", {
           clipPath: "polygon(0 0, 100% 0, 100% 0%, 0 0%)",
-          onComplete: function () {},
-          // duration: 1,
-          // ease: "power4.out",
-          onUpdate: function () {
-            const progress = Number(this.progress())
-            if (progress >= 0.95) {
-              setLoading(false)
-            }
+          onComplete: function () {
+            setLoading(false)
           },
         })
     },
@@ -70,10 +64,10 @@ export const AppLoader = ({
     <div ref={container}>
       <div
         id="loader-screen-2"
-        className="fixed bg-primary/40 top-0 left-0 h-screen w-screen z-[10]"
+        className="fixed bg-[#CEFBD0] top-0 left-0 h-screen w-screen z-[3000]"
       ></div>
       <div
-        className="fixed bg-primary/100 top-0 left-0 h-screen w-screen flex flex-col gap-2 justify-center items-center text-white z-[20]"
+        className="fixed bg-primary/100 top-0 left-0 h-screen w-screen flex flex-col gap-2 justify-center items-center text-white z-[3100]"
         id="loader-screen-1"
       >
         <div className="flex items-center justify-center md:gap-[150px] gap-7 loader-screen-details">
