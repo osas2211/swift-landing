@@ -92,8 +92,8 @@ export const Hero = ({ tl }: { tl: gsap.core.Timeline }) => {
       id="home-hero"
       ref={scope}
     >
-      <div className="2xl:w-[44%] md:w-[50%] w-full">
-        <p className="2xl:text-[76px] 2xl:leading-[90px] lg:text-[45px] lg:leading-[65px] md:text-[34px] md:leading-[50px] text-[32px] leading-[44px] tracking-[-1.5px]">
+      <div className="2xl:w-[44%] md:w-[55%] w-full">
+        <p className="2xl:text-[76px] 2xl:leading-[90px] lg:text-[62px] lg:leading-[75px] md:text-[34px] md:leading-[50px] text-[32px] leading-[44px] tracking-[-1.5px]">
           <span className=" m-0 p-0 inline-block overflow-hidden">
             <span className=" m-0 p-0 inline-block relative up-text">
               <span>
