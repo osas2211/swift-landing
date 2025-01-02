@@ -18,6 +18,32 @@ export const TrackingDetails = () => {
 
       <div>
         <p className="md:text-2xl text-lg my-5 md:my-9">Order information</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+              <p className="font-medium text-xs">Order Number:</p>
+              <p className="text-xs text-[#60605E]">35788456733</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+              <p className="font-medium text-xs">Order Date:</p>
+              <p className="text-xs text-[#60605E]">21st Nov, 2024</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+              <p className="font-medium text-xs">Amount Paid:</p>
+              <p className="text-xs text-[#60605E]">₦2,500.00</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+              <p className="font-medium text-xs">Pickup Address:</p>
+              <p className="text-xs text-[#60605E]">
+                12 olayanju street, off ijesha-tedo. Lagos state
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+              <p className="font-medium text-xs">Status:</p>
+              <p className="text-xs text-[#10617A]">In-Transit</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )
