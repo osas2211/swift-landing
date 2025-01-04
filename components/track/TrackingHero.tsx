@@ -1,8 +1,11 @@
 "use client"
-import React from "react"
+import React, { useState } from "react"
 import { Button } from "../utilities/Button"
+import { useRouter } from "next/navigation"
 
 export const TrackingHero = () => {
+  const [tracking_id, setTrackingID] = useState("")
+  const router = useRouter()
   return (
     <div className="text-center max-w-[1590px] mx-auto md:my-[183px] my-[140px] md:px-[70px] px-4">
       <div className="mb-7 md:mb-14">
@@ -18,8 +21,15 @@ export const TrackingHero = () => {
         <input
           className="w-full outline-none bg-[#F7F8F3] h-[48px] inline-block rounded-lg px-[20px] py-[14px] text-[14px]"
           placeholder="Input order number"
+          onChange={(e) => setTrackingID(e.target.value)}
         />
-        <Button className="w-full">Track</Button>
+        <Button
+          className="w-full disabled:cursor-not-allowed"
+          disabled={/^\s*$/.test(tracking_id)}
+          onClick={() => router.push(`/track/${tracking_id}`)}
+        >
+          Track
+        </Button>
       </div>
     </div>
   )
