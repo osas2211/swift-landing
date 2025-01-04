@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation"
 export const TrackingHero = () => {
   const [tracking_id, setTrackingID] = useState("")
   const router = useRouter()
+  const getTrackingDetails = () => router.push(`/track/${tracking_id}`)
   return (
     <div className="text-center max-w-[1590px] mx-auto md:my-[183px] my-[140px] md:px-[70px] px-4">
       <div className="mb-7 md:mb-14">
@@ -26,7 +27,7 @@ export const TrackingHero = () => {
         <Button
           className="w-full disabled:cursor-not-allowed"
           disabled={/^\s*$/.test(tracking_id)}
-          onClick={() => router.push(`/track/${tracking_id}`)}
+          onClick={getTrackingDetails}
         >
           Track
         </Button>
