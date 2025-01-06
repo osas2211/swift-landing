@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { Button } from "../utilities/Button"
 import { useRouter } from "next/navigation"
 import axios from "axios"
@@ -7,10 +7,11 @@ import { DeliveryI } from "@/types/delivery"
 import { urls } from "@/constants/url"
 import { LoaderCircle } from "lucide-react"
 import gsap from "gsap"
+import { TrackingContext } from "@/context/TrackingContext"
 
 export const TrackingHero = () => {
   const [tracking_number, setTrackingNumber] = useState("")
-  const [data, setData] = useState<DeliveryI | null>(null)
+  const { set_tracking_data } = useContext(TrackingContext)
   const [isLoading, setIsLoading] = useState(false)
   const [errMsg, setErrMsg] = useState("")
   const router = useRouter()
@@ -25,23 +26,18 @@ export const TrackingHero = () => {
     }
 
     axios(config)
-      .then(function (response) {
+      .then(function (response: { data: DeliveryI }) {
         setIsLoading(false)
         setErrMsg("")
-        // router.push(`/track/${tracking_number}`)
-        console.log(JSON.stringify(response.data))
-        gsap.to("#loader-icon", {
-          rotate: 10060,
-          yoyo: true,
-          repeat: -1,
-          transformOrigin: "center center",
-          duration: 4,
-        })
+        set_tracking_data(response?.data)
+        router.push(`/track/${tracking_number}`)
+        // console.log(JSON.stringify(response.data))
       })
       .catch(function (error) {
         setIsLoading(false)
+        set_tracking_data(null)
         setErrMsg(error?.response?.data?.message)
-        console.log(error)
+        // console.log(error)
       })
   }
   useEffect(() => {

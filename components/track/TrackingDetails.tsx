@@ -1,11 +1,20 @@
 "use client"
 import Link from "next/link"
-import React from "react"
+import React, { useContext, useEffect } from "react"
 import { GoCheckCircleFill } from "react-icons/go"
 import { TrackingMap } from "./TrackingMap"
 import { MapProvider } from "./MapProvider"
+import { TrackingContext } from "@/context/TrackingContext"
+import { useRouter } from "next/navigation"
 
 export const TrackingDetails = () => {
+  const { tracking_data } = useContext(TrackingContext)
+  const router = useRouter()
+  useEffect(() => {
+    if (!tracking_data) {
+      router.push("/track")
+    }
+  })
   return (
     <div className="max-w-[1590px] mx-auto md:my-[153px] my-[120px] md:px-[70px] px-4">
       <div className="my-6 md:my-11">
@@ -25,7 +34,9 @@ export const TrackingDetails = () => {
           <div className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
               <p className="font-medium text-xs">Order Number:</p>
-              <p className="text-xs text-[#60605E]">35788456733</p>
+              <p className="text-xs text-[#60605E]">
+                {tracking_data?.data?.delivery_request?.order_number}
+              </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
               <p className="font-medium text-xs">Order Date:</p>
