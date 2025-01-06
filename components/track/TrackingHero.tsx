@@ -1,12 +1,58 @@
 "use client"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Button } from "../utilities/Button"
 import { useRouter } from "next/navigation"
+import axios from "axios"
+import { DeliveryI } from "@/types/delivery"
+import { urls } from "@/constants/url"
+import { LoaderCircle } from "lucide-react"
+import gsap from "gsap"
 
 export const TrackingHero = () => {
-  const [tracking_id, setTrackingID] = useState("")
+  const [tracking_number, setTrackingNumber] = useState("")
+  const [data, setData] = useState<DeliveryI | null>(null)
+  const [isLoading, setIsLoading] = useState(false)
+  const [errMsg, setErrMsg] = useState("")
   const router = useRouter()
-  const getTrackingDetails = () => router.push(`/track/${tracking_id}`)
+  const getTrackingDetails = () => {
+    setIsLoading(true)
+    let config = {
+      method: "get",
+      maxBodyLength: Infinity,
+      url: `${urls.base_url}/delivery/track?order_number=${tracking_number}`,
+      headers: {},
+      // data: data,
+    }
+
+    axios(config)
+      .then(function (response) {
+        setIsLoading(false)
+        setErrMsg("")
+        // router.push(`/track/${tracking_number}`)
+        console.log(JSON.stringify(response.data))
+        gsap.to("#loader-icon", {
+          rotate: 10060,
+          yoyo: true,
+          repeat: -1,
+          transformOrigin: "center center",
+          duration: 4,
+        })
+      })
+      .catch(function (error) {
+        setIsLoading(false)
+        setErrMsg(error?.response?.data?.message)
+        console.log(error)
+      })
+  }
+  useEffect(() => {
+    gsap.to("#loader-icon", {
+      rotate: 10060,
+      yoyo: true,
+      repeat: -1,
+      transformOrigin: "center center",
+      duration: 4,
+    })
+  }, [])
   return (
     <div className="text-center max-w-[1590px] mx-auto md:my-[183px] my-[140px] md:px-[70px] px-4">
       <div className="mb-7 md:mb-14">
@@ -22,15 +68,30 @@ export const TrackingHero = () => {
         <input
           className="w-full outline-none bg-[#F7F8F3] h-[48px] inline-block rounded-lg px-[20px] py-[14px] text-[14px]"
           placeholder="Input order number"
-          onChange={(e) => setTrackingID(e.target.value)}
+          onChange={(e) => {
+            setTrackingNumber(e.target.value)
+            setErrMsg("")
+          }}
         />
-        <Button
-          className="w-full disabled:cursor-not-allowed"
-          disabled={/^\s*$/.test(tracking_id)}
-          onClick={getTrackingDetails}
-        >
-          Track
-        </Button>
+        <div className="w-full">
+          {errMsg && (
+            <p className="text-start text-red-500 text-xs">{errMsg}</p>
+          )}
+          <Button
+            className="w-full disabled:cursor-not-allowed"
+            disabled={/^\s*$/.test(tracking_number) || isLoading}
+            onClick={getTrackingDetails}
+          >
+            {isLoading ? (
+              <span>
+                {/* <LoaderCircle id="loader-icon" /> */}
+                Getting info...
+              </span>
+            ) : (
+              <>Track</>
+            )}
+          </Button>
+        </div>
       </div>
     </div>
   )
