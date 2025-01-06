@@ -1,5 +1,6 @@
 "use client"
 
+import { DeliveryI } from "@/types/delivery"
 //Map component Component from library
 import { GoogleMap, Marker, Polygon } from "@react-google-maps/api"
 
@@ -12,8 +13,8 @@ const defaultMapContainerStyle = {
 
 //K2's coordinates
 const defaultMapCenter = {
-  lat: 6.362046,
-  lng: 5.671422,
+  lat: 0,
+  lng: 0,
 }
 
 //Default zoom level, can be adjusted
@@ -28,19 +29,46 @@ const defaultMapOptions: google.maps.MapOptions = {
   colorScheme: "dark",
 }
 
-export const TrackingMap = () => {
+export const TrackingMap = ({ data }: { data: DeliveryI }) => {
   return (
     <div className="w-full">
       <GoogleMap
         mapContainerStyle={defaultMapContainerStyle}
-        center={defaultMapCenter}
+        center={
+          data
+            ? {
+                lat: data?.data?.delivery_request?.pickup_location
+                  ?.coordinates[0],
+                lng: data?.data?.delivery_request?.pickup_location
+                  ?.coordinates[1],
+              }
+            : defaultMapCenter
+        }
         zoom={defaultMapZoom}
         options={defaultMapOptions}
       >
-        <Marker
+        {/* <Marker
           position={defaultMapCenter}
           // icon={"/assets/icons/locator.svg"}
-        ></Marker>
+        ></Marker> */}
+        {data && (
+          <Polygon
+            paths={[
+              {
+                lat: data?.data?.delivery_request?.pickup_location
+                  ?.coordinates[0],
+                lng: data?.data?.delivery_request?.pickup_location
+                  ?.coordinates[1],
+              },
+              {
+                lat: data?.data?.delivery_request?.dropoff_location
+                  ?.coordinates[0],
+                lng: data?.data?.delivery_request?.dropoff_location
+                  ?.coordinates[1],
+              },
+            ]}
+          />
+        )}
       </GoogleMap>
     </div>
   )

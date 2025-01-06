@@ -6,6 +6,8 @@ import { TrackingMap } from "./TrackingMap"
 import { MapProvider } from "./MapProvider"
 import { TrackingContext } from "@/context/TrackingContext"
 import { useRouter } from "next/navigation"
+import moment from "moment"
+import { DeliveryI } from "@/types/delivery"
 
 export const TrackingDetails = () => {
   const { tracking_data } = useContext(TrackingContext)
@@ -40,21 +42,35 @@ export const TrackingDetails = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
               <p className="font-medium text-xs">Order Date:</p>
-              <p className="text-xs text-[#60605E]">21st Nov, 2024</p>
+              <p className="text-xs text-[#60605E]">
+                {moment(
+                  tracking_data?.data?.delivery_request?.timestamp?.created
+                ).format("ll")}
+              </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
               <p className="font-medium text-xs">Amount Paid:</p>
-              <p className="text-xs text-[#60605E]">₦2,500.00</p>
+              <p className="text-xs text-[#60605E]">
+                {Intl.NumberFormat("en-NG", {
+                  currency: "NGN",
+                  style: "currency",
+                }).format(tracking_data?.data?.delivery_request?.price || 0)}
+              </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
               <p className="font-medium text-xs">Pickup Address:</p>
               <p className="text-xs text-[#60605E]">
-                12 olayanju street, off ijesha-tedo. Lagos state
+                {
+                  tracking_data?.data?.delivery_request?.pickup_location
+                    ?.address
+                }
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
               <p className="font-medium text-xs">Status:</p>
-              <p className="text-xs text-[#10617A]">In-Transit</p>
+              <p className="text-xs text-[#10617A] capitalize">
+                {tracking_data?.data?.delivery_request?.status}
+              </p>
             </div>
           </div>
           <div className="text-xs space-y-4 md:max-h-[420px] overflow-auto">
@@ -180,7 +196,7 @@ export const TrackingDetails = () => {
 
       <div className="mt-6 md:mt-[120px]">
         <MapProvider>
-          <TrackingMap />
+          <TrackingMap data={tracking_data as DeliveryI} />
         </MapProvider>
       </div>
     </div>
