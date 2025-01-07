@@ -12,6 +12,7 @@ import { DeliveryI } from "@/types/delivery"
 export const TrackingDetails = () => {
   const { tracking_data } = useContext(TrackingContext)
   const router = useRouter()
+  const timestamp = tracking_data?.data?.delivery_request?.timestamp
   useEffect(() => {
     if (!tracking_data) {
       router.push("/track")
@@ -43,9 +44,7 @@ export const TrackingDetails = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
               <p className="font-medium text-xs">Order Date:</p>
               <p className="text-xs text-[#60605E]">
-                {moment(
-                  tracking_data?.data?.delivery_request?.timestamp?.created
-                ).format("ll")}
+                {moment(timestamp?.created).format("ll")}
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
@@ -75,117 +74,206 @@ export const TrackingDetails = () => {
           </div>
           <div className="text-xs space-y-4 md:max-h-[420px] overflow-auto">
             <div className="grid grid-cols-[130px,auto] md:gap-[54px] gap-[27px] h-auto">
-              <div className="flex gap-[12px] h-[100%]">
+              <div className="flex gap-[12px] h-[100%] min-h-[55px]">
                 <div className="flex flex-col items-center gap-[6px]">
-                  <GoCheckCircleFill className="text-[#37913B] text-3xl" />
+                  <GoCheckCircleFill size={24} className="text-[#37913B]" />
                   <div className="w-[2px] h-[100%] bg-[#37913B]" />
                 </div>
                 <div>
-                  <p>Nov 15, 2024</p>
-                  <p className="text-[11px] text-[#60605E] mt-[2px]">10:50</p>
+                  <p>{moment(timestamp?.created).format("ll")}</p>
+                  <p className="text-[11px] text-[#60605E] mt-[2px]">
+                    {moment(timestamp?.created).format("LT")}
+                  </p>
                 </div>
               </div>
               <div>
                 <p>Delivery Request Created</p>
                 <div className="text-[11px] text-[#60605E] mt-[2px]">
-                  <p className="">Pickup: Ojota </p>
-                  <p>Payment: cash/card</p>
-                  <p>Amount: ₦2,500.00</p>
-                </div>
-              </div>
-            </div>
-            <div className="grid grid-cols-[130px,auto] md:gap-[54px] gap-[27px] h-auto">
-              <div className="flex gap-[12px] h-[100%]">
-                <div className="flex flex-col items-center gap-[6px]">
-                  <GoCheckCircleFill className="text-[#37913B] text-3xl" />
-                  <div className="w-[2px] h-[100%] bg-[#37913B]" />
-                </div>
-                <div>
-                  <p>Nov 15, 2024</p>
-                  <p className="text-[11px] text-[#60605E] mt-[2px]">10:50</p>
-                </div>
-              </div>
-              <div>
-                <p>Delivery Request Created</p>
-                <div className="text-[11px] text-[#60605E] mt-[2px]">
-                  <p className="">Pickup: Ojota </p>
-                  <p>Payment: cash/card</p>
-                  <p>Amount: ₦2,500.00</p>
+                  <p className="">
+                    Pickup:{" "}
+                    {
+                      tracking_data?.data?.delivery_request?.pickup_location
+                        ?.description
+                    }
+                  </p>
                   <p>
-                    Pickup address: 12 olayanju street, off ijesha-tedo. Lagos
-                    state
+                    Payment:{" "}
+                    {tracking_data?.data?.delivery_request?.payment_method}
+                  </p>
+                  <p>
+                    Amount:{" "}
+                    {Intl.NumberFormat("en-NG", {
+                      currency: "NGN",
+                      style: "currency",
+                    }).format(
+                      tracking_data?.data?.delivery_request?.price || 0
+                    )}
                   </p>
                 </div>
               </div>
             </div>
             <div className="grid grid-cols-[130px,auto] md:gap-[54px] gap-[27px] h-auto">
-              <div className="flex gap-[12px] h-[100%]">
+              <div className="flex gap-[12px] h-[100%] min-h-[55px]">
                 <div className="flex flex-col items-center gap-[6px]">
-                  <GoCheckCircleFill className="text-[#37913B] text-3xl" />
-                  <div className="w-[2px] h-[100%] bg-[#37913B]" />
+                  <GoCheckCircleFill
+                    size={24}
+                    className={`${
+                      timestamp?.accepted ? "text-[#37913B]" : "text-[#7C7C7A]"
+                    }`}
+                  />
+                  <div
+                    className={`w-[2px] h-[100%] ${
+                      timestamp?.accepted ? "bg-[#37913B]" : "bg-[#7C7C7A]"
+                    }`}
+                  />
                 </div>
                 <div>
-                  <p>Nov 15, 2024</p>
-                  <p className="text-[11px] text-[#60605E] mt-[2px]">10:50</p>
+                  <div>
+                    <p>{moment(timestamp?.accepted).format("ll")}</p>
+                    <p className="text-[11px] text-[#60605E] mt-[2px]">
+                      {moment(timestamp?.accepted).format("LT")}
+                    </p>
+                  </div>
                 </div>
               </div>
               <div>
-                <p>Delivery Request Created</p>
+                <p>Rider accepted request</p>
                 <div className="text-[11px] text-[#60605E] mt-[2px]">
-                  <p className="">Pickup: Ojota </p>
-                  <p>Payment: cash/card</p>
-                  <p>Amount: ₦2,500.00</p>
-                  <p>
-                    Pickup address: 12 olayanju street, off ijesha-tedo. Lagos
-                    state
+                  <p className="">
+                    Rider name:{" "}
+                    {
+                      tracking_data?.data?.delivery_request?.rider?.user
+                        ?.fullname
+                    }{" "}
                   </p>
                 </div>
               </div>
             </div>
             <div className="grid grid-cols-[130px,auto] md:gap-[54px] gap-[27px] h-auto">
-              <div className="flex gap-[12px] h-[100%]">
+              <div className="flex gap-[12px] h-[100%] min-h-[55px]">
                 <div className="flex flex-col items-center gap-[6px]">
-                  <GoCheckCircleFill className="text-[#37913B] text-3xl" />
-                  <div className="w-[2px] h-[100%] bg-[#37913B]" />
+                  <GoCheckCircleFill
+                    size={24}
+                    className={`${
+                      timestamp?.approved_for_pickup
+                        ? "text-[#37913B]"
+                        : "text-[#7C7C7A]"
+                    }`}
+                  />
+                  <div
+                    className={`w-[2px] h-[100%] ${
+                      timestamp?.approved_for_pickup
+                        ? "bg-[#37913B]"
+                        : "bg-[#7C7C7A]"
+                    }`}
+                  />
                 </div>
                 <div>
-                  <p>Nov 15, 2024</p>
-                  <p className="text-[11px] text-[#60605E] mt-[2px]">10:50</p>
+                  <div>
+                    <p>{moment(timestamp?.approved_for_pickup).format("ll")}</p>
+                    <p className="text-[11px] text-[#60605E] mt-[2px]">
+                      {moment(timestamp?.approved_for_pickup).format("LT")}
+                    </p>
+                  </div>
                 </div>
               </div>
               <div>
-                <p>Delivery Request Created</p>
+                <p>Delivery request approved</p>
                 <div className="text-[11px] text-[#60605E] mt-[2px]">
-                  <p className="">Pickup: Ojota </p>
-                  <p>Payment: cash/card</p>
-                  <p>Amount: ₦2,500.00</p>
-                  <p>
-                    Pickup address: 12 olayanju street, off ijesha-tedo. Lagos
-                    state
+                  <p className="">
+                    Rider name:{" "}
+                    {
+                      tracking_data?.data?.delivery_request?.rider?.user
+                        ?.fullname
+                    }{" "}
                   </p>
                 </div>
               </div>
             </div>
             <div className="grid grid-cols-[130px,auto] md:gap-[54px] gap-[27px] h-auto">
-              <div className="flex gap-[12px] h-[100%]">
+              <div className="flex gap-[12px] h-[100%] min-h-[55px]">
                 <div className="flex flex-col items-center gap-[6px]">
-                  <GoCheckCircleFill className="text-[#37913B] text-3xl" />
-                  <div className="w-[2px] h-[100%] bg-[#37913B]" />
+                  <GoCheckCircleFill
+                    size={24}
+                    className={`${
+                      timestamp?.picked_up ? "text-[#37913B]" : "text-[#7C7C7A]"
+                    }`}
+                  />
+                  <div
+                    className={`w-[2px] h-[100%] ${
+                      timestamp?.picked_up ? "bg-[#37913B]" : "bg-[#7C7C7A]"
+                    }`}
+                  />
                 </div>
                 <div>
-                  <p>Nov 15, 2024</p>
-                  <p className="text-[11px] text-[#60605E] mt-[2px]">10:50</p>
+                  <div>
+                    <p>{moment(timestamp?.picked_up).format("ll")}</p>
+                    <p className="text-[11px] text-[#60605E] mt-[2px]">
+                      {moment(timestamp?.picked_up).format("LT")}
+                    </p>
+                  </div>
                 </div>
               </div>
               <div>
-                <p>Delivery Request Created</p>
+                <p>Rider pickup package</p>
                 <div className="text-[11px] text-[#60605E] mt-[2px]">
-                  <p className="">Pickup: Ojota </p>
-                  <p>Payment: cash/card</p>
-                  <p>Amount: ₦2,500.00</p>
-                  <p>
-                    Pickup address: 12 olayanju street, off ijesha-tedo. Lagos
-                    state
+                  <p className="">
+                    Rider name:{" "}
+                    {
+                      tracking_data?.data?.delivery_request?.rider?.user
+                        ?.fullname
+                    }{" "}
+                  </p>
+                  <p className="">
+                    Pickup address:{" "}
+                    {
+                      tracking_data?.data?.delivery_request?.pickup_location
+                        ?.address
+                    }
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="grid grid-cols-[130px,auto] md:gap-[54px] gap-[27px] h-auto">
+              <div className="flex gap-[12px] h-[100%] min-h-[55px]">
+                <div className="flex flex-col items-center gap-[6px]">
+                  <GoCheckCircleFill
+                    size={24}
+                    className={`${
+                      timestamp?.completed ? "text-[#37913B]" : "text-[#7C7C7A]"
+                    }`}
+                  />
+                  <div
+                    className={`w-[2px] h-[100%] ${
+                      timestamp?.completed ? "bg-[#37913B]" : "bg-[#7C7C7A]"
+                    }`}
+                  />
+                </div>
+                <div>
+                  <div>
+                    <p>{moment(timestamp?.completed).format("ll")}</p>
+                    <p className="text-[11px] text-[#60605E] mt-[2px]">
+                      {moment(timestamp?.completed).format("LT")}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <p>Rider deliver package</p>
+                <div className="text-[11px] text-[#60605E] mt-[2px]">
+                  <p className="">
+                    Rider name:{" "}
+                    {
+                      tracking_data?.data?.delivery_request?.rider?.user
+                        ?.fullname
+                    }{" "}
+                  </p>
+                  <p className="">
+                    Pickup address:{" "}
+                    {
+                      tracking_data?.data?.delivery_request?.dropoff_location
+                        ?.address
+                    }
                   </p>
                 </div>
               </div>
