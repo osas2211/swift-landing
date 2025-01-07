@@ -13,8 +13,8 @@ const defaultMapContainerStyle = {
 
 //K2's coordinates
 const defaultMapCenter = {
-  lat: 6.584696474025269,
-  lng: 3.349409966874283,
+  lat: 0,
+  lng: 0,
 }
 
 //Default zoom level, can be adjusted
@@ -48,7 +48,16 @@ export const TrackingMap = ({ data }: { data: DeliveryI }) => {
         options={defaultMapOptions}
       >
         <Marker
-          position={defaultMapCenter}
+          position={
+            data
+              ? {
+                  lat: data?.data?.delivery_request?.pickup_location
+                    ?.coordinates[0],
+                  lng: data?.data?.delivery_request?.pickup_location
+                    ?.coordinates[1],
+                }
+              : defaultMapCenter
+          }
           // icon={"/assets/icons/locator.svg"}
         ></Marker>
         {data && (
