@@ -3,6 +3,7 @@ import React from "react"
 import { Button } from "../utilities/Button"
 import { SalesPerson } from "./SalesPerson"
 import { SalesPersonMobile } from "./SalesPersonMobile"
+import Link from "next/link"
 
 export const WhoWeAre = () => {
   return (
@@ -33,9 +34,11 @@ export const WhoWeAre = () => {
               </p>
             </div>
             <div className="overflow-hidden md:w-auto w-full md:mt-[50px]">
-              <Button size="large" className="up-text md:w-auto bg-[#123014]">
-                Learn more
-              </Button>
+              <Link href={"/get-started"}>
+                <Button size="large" className="up-text md:w-auto bg-[#123014]">
+                  Learn more
+                </Button>
+              </Link>
             </div>
           </div>
 
