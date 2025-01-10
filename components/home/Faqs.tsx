@@ -6,10 +6,11 @@ const items = [
     title: "What is SwiftVia?",
     content: (
       <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores
-        optio ducimus dolor quaerat sit, natus est odio cum sunt, accusantium
-        pariatur dignissimos maiores dolores provident placeat iusto non
-        perspiciatis magnam.
+        SwiftVia is a logistics company that connects riders to customers for
+        efficient package pickups and deliveries. We provide a platform for
+        customers to request deliveries, and registered riders are matched to
+        complete these orders. This seamless connection allows for fast,
+        reliable, and secure delivery services.
       </div>
     ),
   },
