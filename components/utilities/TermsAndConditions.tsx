@@ -17,10 +17,10 @@ const TermsAndConditions: React.FC = () => {
         </h2>
         <p>
           By accessing and placing an order with SwiftVia Logistics LTD
-          (&quote;SwiftVia&quote;), you confirm your agreement with and
-          acceptance of the Terms of Service as outlined below. These terms
-          apply to the entire website and any communication between you and
-          SwiftVia, including emails.
+          (&quot;SwiftVia&quot;), you confirm your agreement with and acceptance
+          of the Terms of Service as outlined below. These terms apply to the
+          entire website and any communication between you and SwiftVia,
+          including emails.
         </p>
       </section>
 
@@ -44,7 +44,7 @@ const TermsAndConditions: React.FC = () => {
           SwiftVia, the provider of the SwiftVia website and services. Using the
           SwiftVia Service, you agree to be bound by these Terms & Conditions.
           If you disagree, please refrain from using the SwiftVia Service.
-          &quote;You&quote; refers to both individuals and entities.
+          &quot;You&quot; refers to both individuals and entities.
         </p>
         <h3 className="font-semibold mb-4">Meanings</h3>
         <ul className="list-disc list-inside ml-4 space-y-4">
@@ -74,7 +74,6 @@ const TermsAndConditions: React.FC = () => {
         </ul>
       </section>
 
-      {/* Other sections follow the same structure */}
       <section className="mb-8">
         <h2 className="text-lg md:text-xl text-black font-semibold mb-4">
           4. Restrictions
@@ -108,7 +107,181 @@ const TermsAndConditions: React.FC = () => {
         </p>
       </section>
 
-      {/* Add sections 6 to 22 similarly */}
+      <section className="mb-8">
+        <h2 className="text-lg md:text-xl text-black font-semibold mb-4">
+          6. Your Consent
+        </h2>
+        <p>
+          By using our website, registering an account, or making a purchase,
+          you consent to our Terms & Conditions.
+        </p>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-lg md:text-xl text-black font-semibold mb-4">
+          7. Links to Other Websites
+        </h2>
+        <p>
+          These Terms & Conditions apply only to SwiftVia services. Links to
+          external websites are not operated or controlled by SwiftVia. We are
+          not responsible for such websites&apos; content, accuracy, or
+          opinions. Your interaction with other websites is subject to their
+          rules and policies.
+        </p>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-lg md:text-xl text-black font-semibold mb-4">
+          8. Cookies
+        </h2>
+        <p>
+          SwiftVia uses cookies to identify visited areas of our website.
+          Cookies enhance performance and functionality but are non-essential.
+          Disabling cookies may affect certain functionality.
+        </p>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-lg md:text-xl text-black font-semibold mb-4">
+          9. Third-Party Services
+        </h2>
+        <p>
+          SwiftVia may display third-party content or provide links to
+          third-party services. SwiftVia is not responsible for the accuracy,
+          completeness, or any aspect of Third-Party Services. You access them
+          at your own risk and subject to their terms and conditions.
+        </p>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-lg md:text-xl text-black font-semibold mb-4">
+          10. Term and Termination
+        </h2>
+        <p>
+          This agreement remains in effect until terminated by you or SwiftVia.
+          SwiftVia may suspend or terminate this agreement at any time and for
+          any reason, with or without notice.
+        </p>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-lg md:text-xl text-black font-semibold mb-4">
+          11. Limitation of Liability
+        </h2>
+        <p>
+          SwiftVia&apos;s liability under this agreement is limited to the
+          amount paid by you for the website. In no event shall SwiftVia or its
+          suppliers be liable for special, incidental, indirect, or
+          consequential damages.
+        </p>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-lg md:text-xl text-black font-semibold mb-4">
+          12. Severability
+        </h2>
+        <p>
+          If any provision of this agreement is unenforceable, it will be
+          changed to achieve its objectives to the greatest extent possible. The
+          remaining provisions will continue in full force and effect.
+        </p>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-lg md:text-xl text-black font-semibold mb-4">
+          13. Entire Agreement
+        </h2>
+        <p>
+          This agreement, along with the Privacy Policy and any legal notices by
+          SwiftVia, constitutes the entire agreement between you and SwiftVia.
+        </p>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-lg md:text-xl text-black font-semibold mb-4">
+          14. Update to our Terms
+        </h2>
+        <p>
+          We may change our Service and policies and notify you of any changes.
+          Continued use of the Service implies acceptance of updated Terms.
+        </p>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-lg md:text-xl text-black font-semibold mb-4">
+          15. Intellectual Property
+        </h2>
+        <p>
+          The website and its contents are owned by SwiftVia and are protected
+          by copyright, trademark, and other intellectual property laws.
+          Unauthorized use is prohibited.
+        </p>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-lg md:text-xl text-black font-semibold mb-4">
+          16. Notice of Dispute
+        </h2>
+        <p>
+          In case of a dispute, a Notice of Dispute must be provided. We will
+          attempt to resolve disputes through informal negotiation before
+          commencing arbitration.
+        </p>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-lg md:text-xl text-black font-semibold mb-4">
+          17. Submission and Privacy
+        </h2>
+        <p>
+          Submissions provided by you become the sole property of SwiftVia
+          without compensation. SwiftVia has no obligations regarding submitted
+          ideas.
+        </p>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-lg md:text-xl text-black font-semibold mb-4">
+          18. Promotion
+        </h2>
+        <p>
+          Promotions may have separate rules, and you agree to abide by them.
+          Additional terms may apply to purchases through the Services.
+        </p>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-lg md:text-xl text-black font-semibold mb-4">
+          19. Typography Error
+        </h2>
+        <p>
+          SwiftVia reserves the right to refuse or cancel orders with incorrect
+          pricing or information due to typographical errors.
+        </p>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-lg md:text-xl text-black font-semibold mb-4">
+          20. Miscellaneous
+        </h2>
+        <p>
+          The remainder of the agreement will continue if any provision is found
+          unenforceable. Waivers must be in writing. SwiftVia operates from
+          Nigeria, and its Service is not intended for use where prohibited by
+          law.
+        </p>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-lg md:text-xl text-black font-semibold mb-4">
+          21. Disclaimer
+        </h2>
+        <p>
+          SwiftVia is not responsible for content imprecisions, provides no
+          warranties, and disclaims liability for damages. The Service is
+          provided &quot;as is&quot; and &quot;as available.&quot;
+        </p>
+      </section>
 
       <section className="mb-8">
         <h2 className="text-lg md:text-xl text-black font-semibold mb-4">
