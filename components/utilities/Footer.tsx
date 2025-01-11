@@ -50,16 +50,16 @@ export const Footer = () => {
               <p className="md:text-[18px] font-semibold mb-[24px]">About Us</p>
               <ul className="space-y-3 text-[#60605E]">
                 <li>
-                  <Link href={""}>Our Story</Link>
+                  <Link href={"/about"}>Our Story</Link>
                 </li>
                 <li>
-                  <Link href={""}>Support</Link>
+                  <Link href={"/contact"}>Support</Link>
                 </li>
                 <li>
-                  <Link href={""}>Privacy Policy</Link>
+                  <Link href={"/privacy"}>Privacy Policy</Link>
                 </li>
                 <li>
-                  <Link href={""}>Terms & Condition</Link>
+                  <Link href={"/terms"}>Terms & Condition</Link>
                 </li>
               </ul>
             </div>
