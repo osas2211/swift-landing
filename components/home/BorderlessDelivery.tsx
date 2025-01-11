@@ -11,7 +11,7 @@ export const BorderlessDelivery = () => {
         <div className="flex md:flex-row flex-col gap-7 justify-between">
           <div className="max-w-[680px] md:min-h-[560px] flex flex-col justify-between">
             <div>
-              <p className="mb-[52px] lg:text-[64px] lg:leading-[84px] md:text-[40px] leading-[58px] text-[36px] leading-[54px] max-w-[672px]">
+              <p className="mb-[52px] lg:text-[64px] lg:leading-[84px] md:text-[40px] md:leading-[58px] text-[36px] leading-[54px] max-w-[672px]">
                 Say Hello To Borderless Delivery
               </p>
               <Link href={"/get-started"}>
