@@ -1,6 +1,7 @@
 "use client"
 import React from "react"
 import { Accordion } from "../utilities/Accordion"
+import Link from "next/link"
 const items = [
   {
     title: "What is SwiftVia?",
@@ -18,10 +19,14 @@ const items = [
     title: "How can I register as a logistics partner with SwiftVia?",
     content: (
       <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores
-        optio ducimus dolor quaerat sit, natus est odio cum sunt, accusantium
-        pariatur dignissimos maiores dolores provident placeat iusto non
-        perspiciatis magnam.
+        You can become a logistics partner by signing up online{" "}
+        <Link
+          href={"https://logistics.swiftvia.com/auth/signup"}
+          target="_blank"
+          className="text-primary underline"
+        >
+          click here.
+        </Link>
       </div>
     ),
   },
@@ -29,13 +34,8 @@ const items = [
     title: "How does SwiftVia ensure package security during delivery?",
     content: (
       <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores
-        optio ducimus dolor quaerat sit, natus est odio cum sunt, accusantium
-        pariatur dignissimos maiores dolores provident placeat iusto non
-        perspiciatis magnam. Lorem ipsum dolor sit amet consectetur adipisicing
-        elit. Asperiores optio ducimus dolor quaerat sit, natus est odio cum
-        sunt, accusantium pariatur dignissimos maiores dolores provident placeat
-        iusto non perspiciatis magnam.
+        SwiftVia ensures package security through real-time tracking, verified
+        riders, digital proof of package delivery, and in-app communications.
       </div>
     ),
   },

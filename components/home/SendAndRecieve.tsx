@@ -1,8 +1,23 @@
+/* eslint-disable @next/next/no-img-element */
 "use client"
-import Image from "next/image"
-import React from "react"
+import gsap from "gsap"
+import React, { useEffect } from "react"
 
 export const SendAndRecieve = () => {
+  useEffect(() => {
+    gsap.to(".featured-image-clip", {
+      clipPath: "polygon(0 0, 0% 0, 0% 100%, 0 100%)",
+      ease: "expoScale(0.5,7,power2.inOut)",
+      duration: 1,
+      scrollTrigger: {
+        trigger: ".featured-image-clip",
+        scrub: true,
+        end: window?.matchMedia("(max-width: 760px)")?.matches
+          ? "+=470px"
+          : "+=580px",
+      },
+    })
+  }, [])
   return (
     <div className="md:my-[123px] my-[70px] max-w-[1590px] mx-auto w-[100%] md:px-[70px] px-4">
       <p className="md:text-[58px] md:leading-[74px] text-[36px] leading-[54px] max-w-[627px]">
@@ -19,14 +34,14 @@ export const SendAndRecieve = () => {
         //   // backgroundAttachment: "fixed",
         //   backgroundSize: "cover",
         // }}
-        className="md:h-[560px] h-[448px] w-[100%] rounded-xl relative"
+        className="md:h-[560px] h-[448px] w-[100%] rounded-xl relative featured-image"
       >
-        <Image
+        <img
           src={"/assets/delivery-person-2.png"}
           alt=""
-          fill
           className="h-full w-full object-cover rounded-xl"
         />
+        <div className="featured-image-clip absolute top-0 left-0 bg-[#fff] z-[10] w-full h-full rounded-2xl" />
       </div>
     </div>
   )

@@ -40,3 +40,29 @@ body {
   /* Styling */
   height: 220px;
 }
+
+.featured-image {
+  transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+  overflow: hidden;
+  /* border-radius: 16px; */
+}
+.featured-image img {
+  transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+  /* border-radius: 12px; */
+  overflow-clip-margin: content-box;
+  overflow: clip;
+  clip-path: inset(0%);
+}
+
+.featured-image:hover img {
+  transform: scale(1.03);
+  clip-path: inset(1.5%);
+}
+
+.featured-image:hover {
+  transform: scale(0.97);
+}
+
+.featured-image-clip {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
