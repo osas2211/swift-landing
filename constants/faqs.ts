@@ -48,7 +48,7 @@ export const faqs: {
   {
     type: "General",
     title: `Does SwiftVia charge a fee for using the dashboard?`,
-    content: `No, SwiftVia does not charge any fees for using the dashboard. It is a free tool designed to help grow your logistics company with our services. Feel free to refer other logistics company owners to our platform.`,
+    content: `SwiftVia has a free forever plan to grow your business at no extra cost. We have other offers that provide more insight into your business growth and help deliver more. Check our pricing page for more details.`,
   },
   {
     type: "General",

@@ -3,13 +3,7 @@
 import { DeliveryI } from "@/types/delivery"
 //Map component Component from library
 import { GoogleMap, Marker, Polygon } from "@react-google-maps/api"
-
-//Map's styling
-const defaultMapContainerStyle = {
-  width: "100%",
-  height: "600px",
-  borderRadius: "15px 0px 0px 15px",
-}
+import { useRef } from "react"
 
 //K2's coordinates
 const defaultMapCenter = {
@@ -30,6 +24,15 @@ const defaultMapOptions: google.maps.MapOptions = {
 }
 
 export const TrackingMap = ({ data }: { data: DeliveryI }) => {
+  const scope: React.Ref<HTMLDivElement> = useRef(null)
+  //Map's styling
+  const defaultMapContainerStyle = {
+    width: "100%",
+    height: window?.matchMedia("(max-width: 768px)")?.matches
+      ? "300px"
+      : "600px",
+    borderRadius: "15px 0px 0px 15px",
+  }
   return (
     <div className="w-full">
       <GoogleMap

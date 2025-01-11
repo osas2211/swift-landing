@@ -88,7 +88,7 @@ export interface DeliveryI {
         id: string
       }
       payment_method: "wallet"
-      status: "completed"
+      status: string
       timestamp: {
         created: string
         _id: string

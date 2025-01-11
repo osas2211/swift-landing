@@ -143,7 +143,7 @@ export const Slider = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setActive((prev) => (prev % 3) + 1)
-    }, 15000) // Change number every 5 second
+    }, 7000) // Change number every 5 second
 
     return () => clearInterval(interval) // Cleanup interval on component unmount
   }, [])

@@ -15,30 +15,40 @@ export const TrackingHero = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [errMsg, setErrMsg] = useState("")
   const router = useRouter()
-  const getTrackingDetails = () => {
-    setIsLoading(true)
-    let config = {
-      method: "get",
-      maxBodyLength: Infinity,
-      url: `${urls.base_url}/delivery/track?order_number=${tracking_number}`,
-      headers: {},
-      // data: data,
-    }
+  const getTrackingDetails = async () => {
+    try {
+      setIsLoading(true)
+      let config = {
+        method: "get",
+        maxBodyLength: Infinity,
+        url: `${urls.base_url}/delivery/track?order_number=${tracking_number}`,
+        headers: {},
+        // data: data,
+      }
 
-    axios(config)
-      .then(function (response: { data: DeliveryI }) {
-        setIsLoading(false)
-        setErrMsg("")
-        set_tracking_data(response?.data)
+      const response: { data: DeliveryI } = await axios(config)
+      setIsLoading(false)
+      setErrMsg("")
+      set_tracking_data(response?.data)
+      if (
+        response?.data?.data?.delivery_request?.status
+          ?.toLowerCase()
+          ?.includes("pending")
+      ) {
+        throw new Error("Order is still pending")
+      } else {
         router.push(`/track/${tracking_number}`)
-        // console.log(JSON.stringify(response.data))
-      })
-      .catch(function (error) {
-        setIsLoading(false)
-        set_tracking_data(null)
-        setErrMsg(error?.response?.data?.message)
-        // console.log(error)
-      })
+      }
+    } catch (error: any) {
+      setIsLoading(false)
+      set_tracking_data(null)
+      setErrMsg(
+        error?.response?.data?.message ||
+          error?.data?.message ||
+          error?.message ||
+          "An Error occured"
+      )
+    }
   }
   useEffect(() => {
     gsap.to("#loader-icon", {
@@ -77,15 +87,9 @@ export const TrackingHero = () => {
             className="w-full disabled:cursor-not-allowed"
             disabled={/^\s*$/.test(tracking_number) || isLoading}
             onClick={getTrackingDetails}
+            loading={isLoading}
           >
-            {isLoading ? (
-              <span>
-                {/* <LoaderCircle id="loader-icon" /> */}
-                Getting info...
-              </span>
-            ) : (
-              <>Track</>
-            )}
+            Track
           </Button>
         </div>
       </div>
