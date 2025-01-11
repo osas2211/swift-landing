@@ -8,18 +8,22 @@ export const Hero = () => {
     <div className="max-w-[1590px] my-[90px] md:my-[183px] mx-auto px-4 md:px-[70px]">
       <div className="flex gap-7 justify-between md:flex-row flex-col">
         <div className="max-w-[620px]">
-          <h2 className="text-[24px] md:text-[60px] md:leading-[68px] mb-3 md:mb-5">
-            Turn Your Time Into <span className="text-[#2E7931]">Money.</span>
-          </h2>
-          <p className="text-[#565656] md:text-[16px] md:leading-[22px] text-sm max-w-[527px]">
-            Join our community of riders. Deliver on your schedule, meet new
-            people, and boost your earnings—all with one app.
-          </p>
+          <div className="overflow-hidden">
+            <h2 className="text-[24px] md:text-[60px] md:leading-[68px] mb-3 md:mb-5 up-text-get-started">
+              Turn Your Time Into <span className="text-[#2E7931]">Money.</span>
+            </h2>
+          </div>
+          <div className="overflow-hidden">
+            <p className="text-[#565656] md:text-[16px] md:leading-[22px] text-sm max-w-[527px] up-text-get-started">
+              Join our community of riders. Deliver on your schedule, meet new
+              people, and boost your earnings—all with one app.
+            </p>
+          </div>
           <div className="flex items-center xl:flex-row flex-col md:gap-6 gap-3 max-w-[600px] md:mt-[80px] mt-[40px]">
             <div className="overflow-hidden xl:w-auto w-full">
               <Button
                 size="large"
-                className="up-text xl:w-auto w-full"
+                className="up-text xl:w-auto w-full up-text-get-started"
                 beforeicon={
                   <Image
                     alt=""
@@ -35,7 +39,7 @@ export const Hero = () => {
             <div className="overflow-hidden xl:w-auto w-full">
               <Button
                 size="large"
-                className="up-text xl:w-auto w-full"
+                className="up-text xl:w-auto w-full up-text-get-started"
                 beforeicon={
                   <Image
                     alt=""
@@ -50,7 +54,7 @@ export const Hero = () => {
             </div>
           </div>
         </div>
-        <div>
+        <div className="get-started-reveal">
           <div className="md:w-[618px] md:h-[470px] relative w-[300px] h-[300px] justify-self-center">
             <Image
               src={"/assets/swiftvia-phone.png"}
@@ -62,7 +66,7 @@ export const Hero = () => {
         </div>
       </div>
 
-      <div className="mt-[70px] md:mt-[153px]">
+      <div className="mt-[70px] md:mt-[153px] get-started-reveal">
         <p className="mb-6 md:mb-[57px] md:text-[18px] text-center">
           Learn more about our product
         </p>

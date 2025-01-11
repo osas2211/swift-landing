@@ -30,7 +30,7 @@ export const OurValue = () => {
     },
   ]
   return (
-    <div className="md:my-[153px] my-[70px] ">
+    <div className="md:mb-[153px] md:mt-0 my-[70px] ">
       <div className="max-w-[1590px] mx-auto p-4 lg:py-[90px] py-6 lg:px-[70px] px-4">
         <div>
           <p className="text-[#60605E]">Our Value</p>

@@ -65,7 +65,9 @@ export const Footer = () => {
             </div>
 
             <div>
-              <Button variant="secondary">Let&apos; Talk</Button>
+              <Link href={"mailto:contact@swiftvia.com"}>
+                <Button variant="secondary">Let&apos;s Talk</Button>
+              </Link>
             </div>
           </div>
         </div>

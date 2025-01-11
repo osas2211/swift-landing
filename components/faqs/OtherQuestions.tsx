@@ -13,7 +13,7 @@ export const OtherQuestions = () => {
             Still Have Other Question To Ask Us?
           </h2>
           <div className="md:mt-[88px] mt-[20px]">
-            <Link href="/contact">
+            <Link href="mailto:contact@swiftvia.com">
               <Button variant="secondary" size="large" className="!bg-white">
                 Contact us
               </Button>

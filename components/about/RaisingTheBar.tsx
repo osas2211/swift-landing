@@ -1,44 +1,24 @@
 "use client"
-import { useLoader } from "@/hooks/useLoader"
-import { useGSAP } from "@gsap/react"
-import gsap from "gsap"
-import React, { useEffect, useRef } from "react"
+import React from "react"
 
 export const RaisingTheBar = () => {
-  const timeline = useRef(gsap.timeline({ paused: true }))
-  const scope = useRef(null)
-  const { loading } = useLoader()
-  useGSAP(
-    () => {
-      timeline.current.fromTo(
-        "#bar-cross-lines",
-        { clipPath: "polygon(0 0, 100% 0, 100% 0%, 0 0%)" },
-        { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)", duration: 3 }
-      )
-    },
-    { scope }
-  )
-  useEffect(() => {
-    if (!loading) {
-      timeline.current.play()
-    }
-  }, [loading])
   return (
-    <div
-      className="bg-[#123014] lg:p-[70px] lg:py-[80px] md:p-[40px] py-5 text-white relative overflow-hidden"
-      ref={scope}
-    >
+    <div className="bg-[#123014] lg:p-[70px] lg:py-[80px] md:p-[40px] py-5 text-white relative overflow-hidden about-reveal">
       <div className="max-w-[1590px] mx-auto p-4 relative z-[1] md:min-h-auto min-h-[378px] lg:py-[90px] py-6 lg:px-[70px] px-4">
-        <h3 className="max-w-[528px] md:text-[40px] md:leading-[56px] text-[34px] leading-[42px]">
-          Raising the Bar in Parcel Delivery Across Africa
-        </h3>
-        <p className="max-w-[657px] md:text-[18px] md:leading-[26px] text-[#D7D8D3] md:mt-[50px] mt-[20px] text-sm">
-          SwiftVia sets the standard in parcel handling and logistics with our
-          dynamic platform, designed to deliver the best experience and outcomes
-          for businesses and customers alike. From start to finish, we&apos;re
-          committed to providing seamless, reliable solutions that elevate the
-          delivery experience across Africa.
-        </p>
+        <div className="overflow-hidden">
+          <h3 className="max-w-[528px] md:text-[40px] md:leading-[56px] text-[34px] leading-[42px] up-text-about">
+            Raising the Bar in Parcel Delivery Across Africa
+          </h3>
+        </div>
+        <div className="overflow-hidden">
+          <p className="max-w-[657px] md:text-[18px] md:leading-[26px] text-[#D7D8D3] md:mt-[50px] mt-[20px] text-sm up-text-about">
+            SwiftVia sets the standard in parcel handling and logistics with our
+            dynamic platform, designed to deliver the best experience and
+            outcomes for businesses and customers alike. From start to finish,
+            we&apos;re committed to providing seamless, reliable solutions that
+            elevate the delivery experience across Africa.
+          </p>
+        </div>
       </div>
       <div className="absolute top-0 right-0">
         <svg

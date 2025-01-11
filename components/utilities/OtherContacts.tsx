@@ -21,7 +21,11 @@ export const OtherContacts = ({ showText }: { showText?: boolean }) => {
           <p className="mb-2">Email Us At:</p>
           <p className="text-[#707070] text-xs tracking-[0.5%] leading-[19px] max-w-[400px]">
             Email us at{" "}
-            <Link href={""} target="_blank" className="text-black underline">
+            <Link
+              href={"mailto:contact@swiftvia.com"}
+              target="_blank"
+              className="text-black underline"
+            >
               contact@swiftvia.com
             </Link>{" "}
             with any questions or concerns, and our customer support team will

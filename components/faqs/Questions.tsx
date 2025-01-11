@@ -54,7 +54,7 @@ export const Questions = () => {
     },
   ]
   return (
-    <div className="md:my-[133px] my-[50px] max-w-[1590px] mx-auto p-4">
+    <div className="md:my-[133px] my-[50px] max-w-[1590px] mx-auto p-4 map-svg">
       <div className="flex items-center justify-center gap-4 flex-col max-w-[640px] mx-auto md:mt-[39px] mt-[23px] relative z-[1]">
         <input
           className="w-full outline-none bg-[#F7F8F3] h-[48px] inline-block rounded-full px-[20px] md:pl-[75px] pl-[50px] py-[14px] text-[14px]"
