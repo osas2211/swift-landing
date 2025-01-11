@@ -1,12 +1,14 @@
 "use client"
 import clsx from "clsx"
 import React from "react"
+import { TailSpin } from "react-loader-spinner"
 
 interface props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary"
   size?: "large" | "small"
   beforeicon?: React.ReactNode
   aftericon?: React.ReactNode
+  loading?: boolean
 }
 
 export const Button: React.FC<props> = ({ ...props }) => {
@@ -27,10 +29,23 @@ export const Button: React.FC<props> = ({ ...props }) => {
       <button
         {...props}
         className={clsx(
-          `${bgColour} ${textColor} ${fontSize} ${paddingY} ${paddingX} rounded-lg flex justify-center items-center gap-[6px]`,
+          `${bgColour} ${textColor} ${fontSize} ${paddingY} ${paddingX} rounded-lg flex justify-center items-center gap-[6px] disabled:opacity-70 disabled:cursor-not-allowed`,
           props.className
         )}
+        disabled={props?.disabled || props?.loading}
       >
+        {props?.loading && (
+          <TailSpin
+            visible={true}
+            height="20"
+            width="20"
+            color="#fff"
+            ariaLabel="tail-spin-loading"
+            radius="1"
+            wrapperStyle={{}}
+            wrapperClass=""
+          />
+        )}
         {props?.beforeicon && <div>{props?.beforeicon}</div>}
         {props?.children}
         {props?.aftericon && <div>{props?.aftericon}</div>}
