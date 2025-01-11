@@ -8,20 +8,25 @@ import { PercelIcon2 } from "../icons/PercelIcon"
 import { NearRiderIcon } from "../icons/NearRiderIcon"
 import { horizontalLoop } from "@/helpers/horizontalScrollHelper"
 import gsap from "gsap"
+import {
+  customerItems,
+  logisticsItems,
+  riderItems,
+} from "@/constants/about-values"
 
 export const OurValue = () => {
   const tabItems = [
     {
       title: "Customer",
-      children: <CustomerTab />,
+      children: <SubTab items={customerItems} />,
     },
     {
       title: "Rider",
-      children: <></>,
+      children: <SubTab items={riderItems} />,
     },
     {
       title: "Logistic",
-      children: <></>,
+      children: <SubTab items={logisticsItems} />,
     },
   ]
   return (
@@ -46,7 +51,15 @@ export const OurValue = () => {
   )
 }
 
-const CustomerTab = () => {
+const SubTab = ({
+  items,
+}: {
+  items: {
+    icon: ReactNode
+    title: string
+    body: string
+  }[]
+}) => {
   const boxes = useRef<(HTMLDivElement | null)[]>([])
   // const boxes = Array.from(document?.querySelectorAll(".value-card"))
   const loop = horizontalLoop(boxes.current, { paused: true })
@@ -54,43 +67,6 @@ const CustomerTab = () => {
   const dots = [0, 2]
   const [activeDot, setActiveDot] = React.useState(0)
 
-  const items: { icon: ReactNode; title: string; body: string }[] = [
-    {
-      icon: <MoneyIcon />,
-      title: "Transparent Pricing",
-      body: "Fixed prices that won't change at the end of the trip, giving you full control and no surprises.",
-    },
-    {
-      icon: <PercentIcon />,
-      title: "Flexible Rates",
-      body: "Dynamic pricing that adjusts when needed to maintain service quality, ensuring your delivery always has priority.",
-    },
-    {
-      icon: <TrackingIcon />,
-      title: "Realtime Tracking",
-      body: "Shareable tracking link allows recipients to monitor the item and rider location in real time, enhancing visibility and security.",
-    },
-    {
-      icon: <NearRiderIcon />,
-      title: "Quick Access to Nearby Riders",
-      body: "Find available riders quickly, reducing wait times for faster pickups.",
-    },
-    {
-      icon: <PercelIcon2 />,
-      title: "Express Delivery",
-      body: "Opt for an express service where the rider heads directly to your delivery address without other stops.",
-    },
-    {
-      icon: <NearRiderIcon />,
-      title: "Immediate Access to Nearby Riders",
-      body: "Find available riders quickly, reducing wait times for faster pickups.",
-    },
-    {
-      icon: <TrackingIcon />,
-      title: "Realtime Tracking",
-      body: "Shareable tracking link allows recipients to monitor the item and rider location in real time, enhancing visibility and security.",
-    },
-  ]
   return (
     <div>
       <div className="flex w-[max-content]">
