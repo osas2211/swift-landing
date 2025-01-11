@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { BankIcon } from "../icons/Bank"
 import { PercelIcon } from "../icons/Percel"
 import { RiderIcon } from "../icons/Rider"
@@ -139,28 +139,25 @@ export const Slider = () => {
   const [active, setActive] = useState(1)
   const dots = [1, 2, 3]
   const toRenderItem = items[active - 1]
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setActive((prev) => {
-  //       if (prev >= 3) {
-  //         return 1
-  //       } else {
-  //         return prev + 1
-  //       }
-  //     })
-  //   }, 1000)
-  // })
+  const ref: React.Ref<HTMLDivElement> = useRef(null)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActive((prev) => (prev % 3) + 1)
+    }, 15000) // Change number every 5 second
+
+    return () => clearInterval(interval) // Cleanup interval on component unmount
+  }, [])
   useEffect(() => {
     gsap.fromTo(
       ".animate-slide",
       { opacity: 0 },
-      { opacity: 1, duration: 1.5, stagger: 0.1 }
+      { opacity: 1, duration: 1.5, stagger: 0 }
     )
   }, [active])
   return (
     <div className="lg:mt-[143px] reveal-display pb-7 md:px-[70px] px-4 max-w-[1590px] mx-auto">
       <div>
-        <div className="md:flex gap-6 md:gap-20">
+        <div className="md:flex gap-6 md:gap-20" ref={ref}>
           <div className="lg:pt-12 animate-slide">
             <div className="overflow-hidden">
               <p className="xl:text-4xl xl:leading-[54px] md:text-[28px] md:leading-[36px] leading-[32px] text-[24px] max-w-[607px]">

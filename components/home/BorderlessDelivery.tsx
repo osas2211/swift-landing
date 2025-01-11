@@ -2,6 +2,7 @@
 import React from "react"
 import { Button } from "../utilities/Button"
 import { SmilingGirlImage } from "./SmilingGirlImage"
+import Link from "next/link"
 
 export const BorderlessDelivery = () => {
   return (
@@ -13,9 +14,11 @@ export const BorderlessDelivery = () => {
               <p className="mb-[52px] lg:text-[64px] lg:leading-[84px] md:text-[40px] leading-[58px] text-[36px] leading-[54px] max-w-[672px]">
                 Say Hello To Borderless Delivery
               </p>
-              <Button className="bg-white !text-primary !rounded-full">
-                Get Started
-              </Button>
+              <Link href={"/get-started"}>
+                <Button className="bg-white !text-primary !rounded-full">
+                  Get Started
+                </Button>
+              </Link>
             </div>
             <div className="grid lg:grid-cols-3 grid-cols-[126px,1fr,1fr] md:gap-5 gap-2 md:mt-0 mt-8">
               <div>

@@ -2,6 +2,7 @@
 import React, { useState } from "react"
 import { Button } from "../utilities/Button"
 import Image from "next/image"
+import Link from "next/link"
 
 export const HowItWorks = () => {
   return (
@@ -22,11 +23,11 @@ const Tab = () => {
     },
     {
       title: "Rider",
-      children: <></>,
+      children: <RiderTab />,
     },
     {
       title: "Logistic",
-      children: <></>,
+      children: <LogisticTab />,
     },
   ]
   const [active, setActive] = useState(0)
@@ -109,6 +110,116 @@ const CustomerTab = () => {
       <div className="relative h-[398px] md:w-[529px] w-full">
         <Image
           src={"/assets/phone-hand.png"}
+          alt=""
+          fill={true}
+          className="object-cover rounded-lg"
+        />
+      </div>
+    </div>
+  )
+}
+
+const RiderTab = () => {
+  return (
+    <div className="flex md:items-center md:flex-row flex-col gap-14 justify-center px-4">
+      <div>
+        <div className="space-y-4">
+          <p className="text-[#60605E] text-[18px]">01</p>
+          <p className="font-medium md:text-2xl text-lg">Download & Register</p>
+          <p className="text-sm max-w-[362px] text-[#60605E]">
+            Get the app from your Google Playstore or Apple store and complete
+            the registration form with your details.
+          </p>
+        </div>
+        <div className="flex items-center md:gap-6 gap-3 mt-[50px]">
+          <div className="overflow-hidden md:w-auto w-full">
+            <Button
+              size="small"
+              className="up-text md:w-auto w-full"
+              beforeicon={
+                <Image
+                  alt=""
+                  src={"/assets/playstore.svg"}
+                  height={24}
+                  width={24}
+                />
+              }
+            >
+              Playstore
+            </Button>
+          </div>
+          <div className="overflow-hidden md:w-auto w-full">
+            <Button
+              size="small"
+              className="up-text md:w-auto w-full"
+              beforeicon={
+                <Image
+                  alt=""
+                  src={"/assets/apple.svg"}
+                  height={24}
+                  width={24}
+                />
+              }
+            >
+              Applestore
+            </Button>
+          </div>
+        </div>
+      </div>
+      <div className="relative h-[398px] md:w-[529px] w-full">
+        <Image
+          src={"/assets/rider-phone.png"}
+          alt=""
+          fill={true}
+          className="object-cover rounded-lg"
+        />
+      </div>
+    </div>
+  )
+}
+
+const LogisticTab = () => {
+  return (
+    <div className="flex md:items-center md:flex-row flex-col gap-14 justify-center px-4">
+      <div>
+        <div className="space-y-4">
+          <p className="text-[#60605E] text-[18px]">01</p>
+          <p className="font-medium md:text-2xl text-lg">
+            Sign Up & Set Up Your Dashboard
+          </p>
+          <p className="text-sm max-w-[362px] text-[#60605E]">
+            To get started as a logistics partner, you can either download the
+            rider app and register as a logistics company or continue with the
+            web-based registration. After signing up, enter your essential
+            business details, including company name, address, and contact
+            information
+          </p>
+        </div>
+        <div className="flex items-center md:gap-6 gap-3 mt-[50px]">
+          <div className="overflow-hidden md:w-auto w-full">
+            <Button size="small" className="up-text md:w-auto w-full">
+              Download App
+            </Button>
+          </div>
+          <div className="overflow-hidden md:w-auto w-full">
+            <Link
+              href={"https://logistics.swiftvia.com/auth/signup"}
+              target="_blank"
+            >
+              <Button
+                size="small"
+                className="up-text md:w-auto w-full"
+                variant="secondary"
+              >
+                Continue with web
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </div>
+      <div className="relative h-[398px] md:w-[529px] w-full">
+        <Image
+          src={"/assets/sign-up-screen.png"}
           alt=""
           fill={true}
           className="object-cover rounded-lg"
