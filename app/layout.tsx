@@ -29,34 +29,25 @@ const bdo_grotesk = localFont({
   variable: "--font-bdo",
 })
 
-export const metadata: Metadata = {
+export const metadata = {
   title: {
-    default: "SwiftVia Logistics: Unlock More On Dashboard",
+    default: "SwiftVia Logistics: Experience Fast Dispatch Delivery",
     template: "%s | SwiftVia Logistics",
   },
   description:
-    "Enjoy The Best Logistics Service Dashboard Features, Rider Live Tracking, Orders, And More",
+    "Find Dispatch Rider Nearby With SwiftVia Logistics, Grow Your Logistics Company, Earn More As A Rider, Live Tracking, Mobile Apps, Powerful Logistics Dashboard!",
   twitter: {
     card: "summary_large_image",
   },
-  metadataBase: new URL(urls.base_url),
+  metadataBase: `${urls.base_url}`,
   alternates: {
     canonical: "/",
     languages: {
       "en-US": "/en-US",
     },
   },
-  openGraph: {
-    title: {
-      default: "SwiftVia Logistics: Unlock More On Dashboard",
-      template: "%s | SwiftVia Logistics",
-    },
-    description:
-      "Enjoy The Best Logistics Service Dashboard Features, Rider Live Tracking, Orders, And More",
-    images: [
-      "https://res.cloudinary.com/ddr8rihqd/image/upload/v1711286606/logo/dpitj4bpwpdsgb5q8uiw.png",
-    ],
-  },
+  image:
+    "https://res.cloudinary.com/ddr8rihqd/image/upload/v1711286606/logo/dpitj4bpwpdsgb5q8uiw.png",
 }
 
 export default function RootLayout({
