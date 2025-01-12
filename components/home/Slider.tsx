@@ -208,7 +208,7 @@ export const Slider = () => {
             </div>
           </div>
         </div>
-        <div className="md:-mt-20 flex gap-[6px] items-center">
+        <div className="md:-mt-20 mt-4 flex gap-[6px] items-center">
           {dots.map((index) => {
             const isActive = index === active
             return (

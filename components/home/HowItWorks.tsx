@@ -125,7 +125,7 @@ const CustomerTab = () => {
   }, [])
   useEffect(() => {
     gsap.fromTo(
-      ".animate-slide",
+      ".animate-slide-how-it-works",
       { opacity: 0, y: "110%" },
       { opacity: 1, duration: 0.7, stagger: 0, y: 0 }
     )
@@ -135,7 +135,7 @@ const CustomerTab = () => {
     <div className="flex md:items-center md:flex-row flex-col gap-14 justify-center px-4">
       <div>
         <div className="overflow-hidden" ref={ref}>
-          <div className="animate-slide">{toRenderItem}</div>
+          <div className="animate-slide-how-it-works">{toRenderItem}</div>
         </div>
         <div className="flex items-center md:gap-6 gap-3 mt-[50px]">
           <div className="overflow-hidden md:w-auto w-full">
@@ -172,7 +172,7 @@ const CustomerTab = () => {
           </div>
         </div>
 
-        <div className="md:mt-10 flex gap-[6px] items-center">
+        <div className="mt-10 flex gap-[6px] items-center">
           {dots.map((index) => {
             const isActive = index === active
             return (
@@ -265,7 +265,7 @@ const RiderTab = () => {
   }, [])
   useEffect(() => {
     gsap.fromTo(
-      ".animate-slide",
+      ".animate-slide-how-it-works",
       { opacity: 0, y: "110%" },
       { opacity: 1, duration: 0.7, stagger: 0, y: 0 }
     )
@@ -274,7 +274,7 @@ const RiderTab = () => {
     <div className="flex md:items-center md:flex-row flex-col gap-14 justify-center px-4">
       <div>
         <div className="overflow-hidden" ref={ref}>
-          <div className="animate-slide">{toRenderItem}</div>
+          <div className="animate-slide-how-it-works">{toRenderItem}</div>
         </div>
         <div className="flex items-center md:gap-6 gap-3 mt-[50px]">
           <div className="overflow-hidden md:w-auto w-full">
@@ -311,7 +311,7 @@ const RiderTab = () => {
           </div>
         </div>
 
-        <div className="md:mt-10 flex gap-[6px] items-center">
+        <div className="mt-10 flex gap-[6px] items-center">
           {dots.map((index) => {
             const isActive = index === active
             return (
@@ -410,7 +410,7 @@ const LogisticTab = () => {
   }, [])
   useEffect(() => {
     gsap.fromTo(
-      ".animate-slide",
+      ".animate-slide-how-it-works",
       { opacity: 0, y: "110%" },
       { opacity: 1, duration: 0.7, stagger: 0, y: 0 }
     )
@@ -419,7 +419,7 @@ const LogisticTab = () => {
     <div className="flex md:items-center md:flex-row flex-col gap-14 justify-center px-4">
       <div>
         <div className="overflow-hidden" ref={ref}>
-          <div className="animate-slide">{toRenderItem}</div>
+          <div className="animate-slide-how-it-works">{toRenderItem}</div>
         </div>
         <div className="flex items-center md:gap-6 gap-3 mt-[50px]">
           <div className="overflow-hidden md:w-auto w-full">
@@ -443,7 +443,7 @@ const LogisticTab = () => {
           </div>
         </div>
 
-        <div className="md:mt-10 flex gap-[6px] items-center">
+        <div className="mt-10 flex gap-[6px] items-center">
           {dots.map((index) => {
             const isActive = index === active
             return (
