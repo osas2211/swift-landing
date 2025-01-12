@@ -8,6 +8,7 @@ import { TriangleIcon } from "../icons/Triangle"
 import { CircleIcon } from "../icons/Circle"
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
+import Link from "next/link"
 
 export const Newsletter = () => {
   const tl = useRef(gsap.timeline({ paused: true }))
@@ -48,11 +49,17 @@ export const Newsletter = () => {
         </p>
       </div>
       <div className="flex items-center gap-4 flex-col max-w-[330px] mx-auto md:mt-[39px] mt-[23px] relative z-[1]">
-        <input
+        {/* <input
           className="w-full outline-none bg-[#F7F8F3] h-[48px] inline-block rounded-full px-[20px] py-[14px] text-[14px]"
           placeholder="Email address"
-        />
-        <Button className="w-full !rounded-full">Sign up</Button>
+        /> */}
+        <Link
+          href={"https://zc.vg/CMWpf"}
+          target="_blank"
+          className="block w-full"
+        >
+          <Button className="w-full !rounded-full">Sign up</Button>
+        </Link>
       </div>
 
       <div className="absolute md:top-[-3rem] top-[-1.5rem] md:left-[7px] left-[46px]">

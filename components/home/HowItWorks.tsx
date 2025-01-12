@@ -60,7 +60,7 @@ const Tab = () => {
 const CustomerTab = () => {
   const items = [
     <>
-      <div className="space-y-4">
+      <div className="space-y-4 md:min-h-[256px] min-h-[170px]">
         <p className="text-[#60605E] text-[18px]">01</p>
         <p className="font-medium md:text-2xl text-lg">
           Download & Create an Account
@@ -73,7 +73,7 @@ const CustomerTab = () => {
       </div>
     </>,
     <>
-      <div className="space-y-4">
+      <div className="space-y-4 md:min-h-[256px] min-h-[170px]">
         <p className="text-[#60605E] text-[18px]">02</p>
         <p className="font-medium md:text-2xl text-lg">
           Set Your Location & Choose Service
@@ -85,7 +85,7 @@ const CustomerTab = () => {
       </div>
     </>,
     <>
-      <div className="space-y-4">
+      <div className="space-y-4 md:min-h-[256px] min-h-[170px]">
         <p className="text-[#60605E] text-[18px]">03</p>
         <p className="font-medium md:text-2xl text-lg">
           Place Your Order & Track Rider
@@ -99,7 +99,7 @@ const CustomerTab = () => {
       </div>
     </>,
     <>
-      <div className="space-y-4">
+      <div className="space-y-4 md:min-h-[256px] min-h-[170px]">
         <p className="text-[#60605E] text-[18px]">04</p>
         <p className="font-medium md:text-2xl text-lg">
           Receive Your Delivery & Rate Service
@@ -137,7 +137,7 @@ const CustomerTab = () => {
         <div className="overflow-hidden" ref={ref}>
           <div className="animate-slide-how-it-works">{toRenderItem}</div>
         </div>
-        <div className="flex items-center md:gap-6 gap-3 mt-[50px]">
+        <div className="flex items-center md:gap-6 gap-3 md:mt-[50px] mt-[30px]">
           <div className="overflow-hidden md:w-auto w-full">
             <Button
               size="small"
@@ -206,7 +206,7 @@ const CustomerTab = () => {
 const RiderTab = () => {
   const items = [
     <>
-      <div className="space-y-4">
+      <div className="space-y-4 md:min-h-[256px] min-h-[170px]">
         <p className="text-[#60605E] text-[18px]">01</p>
         <p className="font-medium md:text-2xl text-lg">Download & Register</p>
         <p className="text-sm max-w-[362px] text-[#60605E]">
@@ -216,7 +216,7 @@ const RiderTab = () => {
       </div>
     </>,
     <>
-      <div className="space-y-4">
+      <div className="space-y-4 md:min-h-[256px] min-h-[170px]">
         <p className="text-[#60605E] text-[18px]">02</p>
         <p className="font-medium md:text-2xl text-lg">Verify Your Profile</p>
         <p className="text-sm max-w-[362px] text-[#60605E]">
@@ -226,7 +226,7 @@ const RiderTab = () => {
       </div>
     </>,
     <>
-      <div className="space-y-4">
+      <div className="space-y-4 md:min-h-[256px] min-h-[170px]">
         <p className="text-[#60605E] text-[18px]">03</p>
         <p className="font-medium md:text-2xl text-lg">
           Activate & Accept Orders
@@ -239,7 +239,7 @@ const RiderTab = () => {
       </div>
     </>,
     <>
-      <div className="space-y-4">
+      <div className="space-y-4 md:min-h-[256px] min-h-[170px]">
         <p className="text-[#60605E] text-[18px]">04</p>
         <p className="font-medium md:text-2xl text-lg">
           Complete Deliveries & Earn
@@ -276,7 +276,7 @@ const RiderTab = () => {
         <div className="overflow-hidden" ref={ref}>
           <div className="animate-slide-how-it-works">{toRenderItem}</div>
         </div>
-        <div className="flex items-center md:gap-6 gap-3 mt-[50px]">
+        <div className="flex items-center md:gap-6 gap-3 md:mt-[50px] mt-[30px]">
           <div className="overflow-hidden md:w-auto w-full">
             <Button
               size="small"
@@ -345,7 +345,7 @@ const RiderTab = () => {
 const LogisticTab = () => {
   const items = [
     <>
-      <div className="space-y-4">
+      <div className="space-y-4 md:min-h-[256px] min-h-[170px]">
         <p className="text-[#60605E] text-[18px]">01</p>
         <p className="font-medium md:text-2xl text-lg">
           Sign Up & Set Up Your Dashboard
@@ -360,7 +360,7 @@ const LogisticTab = () => {
       </div>
     </>,
     <>
-      <div className="space-y-4">
+      <div className="space-y-4 md:min-h-[256px] min-h-[170px]">
         <p className="text-[#60605E] text-[18px]">02</p>
         <p className="font-medium md:text-2xl text-lg">Register your riders</p>
         <p className="text-sm max-w-[362px] text-[#60605E]">
@@ -372,7 +372,7 @@ const LogisticTab = () => {
       </div>
     </>,
     <>
-      <div className="space-y-4">
+      <div className="space-y-4 md:min-h-[256px] min-h-[170px]">
         <p className="text-[#60605E] text-[18px]">03</p>
         <p className="font-medium md:text-2xl text-lg">
           Monitor & Assign Orders
@@ -384,7 +384,7 @@ const LogisticTab = () => {
       </div>
     </>,
     <>
-      <div className="space-y-4">
+      <div className="space-y-4 md:min-h-[256px] min-h-[170px]">
         <p className="text-[#60605E] text-[18px]">04</p>
         <p className="font-medium md:text-2xl text-lg">
           Track Performance & Earnings
@@ -421,7 +421,7 @@ const LogisticTab = () => {
         <div className="overflow-hidden" ref={ref}>
           <div className="animate-slide-how-it-works">{toRenderItem}</div>
         </div>
-        <div className="flex items-center md:gap-6 gap-3 mt-[50px]">
+        <div className="flex items-center md:gap-6 gap-3 md:mt-[50px] mt-[30px]">
           <div className="overflow-hidden md:w-auto w-full">
             <Button size="small" className="up-text md:w-auto w-full">
               Download App
