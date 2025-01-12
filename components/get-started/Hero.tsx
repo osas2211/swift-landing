@@ -4,6 +4,7 @@ import { Button } from "../utilities/Button"
 import Image from "next/image"
 import { toast } from "react-toastify"
 import gsap from "gsap"
+import Link from "next/link"
 
 const items = [
   {
@@ -90,40 +91,68 @@ export const Hero = () => {
           <div className="overflow-hidden">{toRenderItem?.title}</div>
           <div className="overflow-hidden">{toRenderItem?.context}</div>
           <div className="flex items-center xl:flex-row flex-col md:gap-6 gap-3 max-w-[600px] md:mt-[80px] mt-[40px]">
-            <div className="overflow-hidden xl:w-auto w-full">
-              <Button
-                size="large"
-                className="up-text xl:w-auto w-full up-text-get-started"
-                onClick={() => toast.info("Coming Soon")}
-                beforeicon={
-                  <Image
-                    alt=""
-                    src={"/assets/playstore.svg"}
-                    height={24}
-                    width={24}
-                  />
-                }
-              >
-                Download on Playstore
-              </Button>
-            </div>
-            <div className="overflow-hidden xl:w-auto w-full">
-              <Button
-                size="large"
-                className="up-text xl:w-auto w-full up-text-get-started"
-                onClick={() => toast.info("Coming Soon")}
-                beforeicon={
-                  <Image
-                    alt=""
-                    src={"/assets/apple.svg"}
-                    height={24}
-                    width={24}
-                  />
-                }
-              >
-                Download on Applestore
-              </Button>
-            </div>
+            {active === 3 ? (
+              <>
+                <div className="overflow-hidden xl:w-auto w-full">
+                  <Link href={"http://logistics.swiftvia.com"} target="_blank">
+                    <Button
+                      size="large"
+                      className="up-text xl:w-auto w-full up-text-get-started"
+                    >
+                      Get started for free
+                    </Button>
+                  </Link>
+                </div>
+                <div className="overflow-hidden xl:w-auto w-full">
+                  <Link href={"http://logistics.swiftvia.com"} target="_blank">
+                    <Button
+                      size="large"
+                      className="up-text xl:w-auto w-full up-text-get-started"
+                      variant="secondary"
+                    >
+                      Learn more now
+                    </Button>
+                  </Link>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="overflow-hidden xl:w-auto w-full">
+                  <Button
+                    size="large"
+                    className="up-text xl:w-auto w-full up-text-get-started"
+                    onClick={() => toast.info("Coming Soon")}
+                    beforeicon={
+                      <Image
+                        alt=""
+                        src={"/assets/playstore.svg"}
+                        height={24}
+                        width={24}
+                      />
+                    }
+                  >
+                    Download on Playstore
+                  </Button>
+                </div>
+                <div className="overflow-hidden xl:w-auto w-full">
+                  <Button
+                    size="large"
+                    className="up-text xl:w-auto w-full up-text-get-started"
+                    onClick={() => toast.info("Coming Soon")}
+                    beforeicon={
+                      <Image
+                        alt=""
+                        src={"/assets/apple.svg"}
+                        height={24}
+                        width={24}
+                      />
+                    }
+                  >
+                    Download on Applestore
+                  </Button>
+                </div>
+              </>
+            )}
           </div>
         </div>
         <div className="get-started-reveal">
