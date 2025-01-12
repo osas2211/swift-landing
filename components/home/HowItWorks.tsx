@@ -139,36 +139,40 @@ const CustomerTab = () => {
         </div>
         <div className="flex items-center md:gap-6 gap-3 md:mt-[50px] mt-[30px]">
           <div className="overflow-hidden md:w-auto w-full">
-            <Button
-              size="small"
-              className="up-text md:w-auto w-full"
-              beforeicon={
-                <Image
-                  alt=""
-                  src={"/assets/playstore.svg"}
-                  height={24}
-                  width={24}
-                />
-              }
-            >
-              Playstore
-            </Button>
+            <Link href={"/get-started"}>
+              <Button
+                size="small"
+                className="up-text md:w-auto w-full"
+                beforeicon={
+                  <Image
+                    alt=""
+                    src={"/assets/playstore.svg"}
+                    height={24}
+                    width={24}
+                  />
+                }
+              >
+                Playstore
+              </Button>
+            </Link>
           </div>
           <div className="overflow-hidden md:w-auto w-full">
-            <Button
-              size="small"
-              className="up-text md:w-auto w-full"
-              beforeicon={
-                <Image
-                  alt=""
-                  src={"/assets/apple.svg"}
-                  height={24}
-                  width={24}
-                />
-              }
-            >
-              Applestore
-            </Button>
+            <Link href={"/get-started"}>
+              <Button
+                size="small"
+                className="up-text md:w-auto w-full"
+                beforeicon={
+                  <Image
+                    alt=""
+                    src={"/assets/apple.svg"}
+                    height={24}
+                    width={24}
+                  />
+                }
+              >
+                Applestore
+              </Button>
+            </Link>
           </div>
         </div>
 
@@ -278,36 +282,40 @@ const RiderTab = () => {
         </div>
         <div className="flex items-center md:gap-6 gap-3 md:mt-[50px] mt-[30px]">
           <div className="overflow-hidden md:w-auto w-full">
-            <Button
-              size="small"
-              className="up-text md:w-auto w-full"
-              beforeicon={
-                <Image
-                  alt=""
-                  src={"/assets/playstore.svg"}
-                  height={24}
-                  width={24}
-                />
-              }
-            >
-              Playstore
-            </Button>
+            <Link href={"/get-started"}>
+              <Button
+                size="small"
+                className="up-text md:w-auto w-full"
+                beforeicon={
+                  <Image
+                    alt=""
+                    src={"/assets/playstore.svg"}
+                    height={24}
+                    width={24}
+                  />
+                }
+              >
+                Playstore
+              </Button>
+            </Link>
           </div>
           <div className="overflow-hidden md:w-auto w-full">
-            <Button
-              size="small"
-              className="up-text md:w-auto w-full"
-              beforeicon={
-                <Image
-                  alt=""
-                  src={"/assets/apple.svg"}
-                  height={24}
-                  width={24}
-                />
-              }
-            >
-              Applestore
-            </Button>
+            <Link href={"/get-started"}>
+              <Button
+                size="small"
+                className="up-text md:w-auto w-full"
+                beforeicon={
+                  <Image
+                    alt=""
+                    src={"/assets/apple.svg"}
+                    height={24}
+                    width={24}
+                  />
+                }
+              >
+                Applestore
+              </Button>
+            </Link>
           </div>
         </div>
 
@@ -423,9 +431,11 @@ const LogisticTab = () => {
         </div>
         <div className="flex items-center md:gap-6 gap-3 md:mt-[50px] mt-[30px]">
           <div className="overflow-hidden md:w-auto w-full">
-            <Button size="small" className="up-text md:w-auto w-full">
-              Download App
-            </Button>
+            <Link href="/get-started">
+              <Button size="small" className="up-text md:w-auto w-full">
+                Download App
+              </Button>
+            </Link>
           </div>
           <div className="overflow-hidden md:w-auto w-full">
             <Link

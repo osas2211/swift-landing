@@ -106,7 +106,6 @@ export const ContactForm = () => {
           </form>
         </div>
       </div>
-      <ToastContainer />
     </div>
   )
 }

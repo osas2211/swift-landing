@@ -10,6 +10,7 @@ import { SideImageMobile } from "./SideImageMobile"
 import { MeetLineMobile } from "./MeetLineMobile"
 import { useGSAP } from "@gsap/react"
 import { useLoader } from "@/hooks/useLoader"
+import Link from "next/link"
 
 gsap.registerPlugin(TextPlugin)
 
@@ -136,36 +137,40 @@ export const Hero = ({ tl }: { tl: gsap.core.Timeline }) => {
         </div>
         <div className="flex items-center xl:flex-row flex-col md:gap-6 gap-3">
           <div className="overflow-hidden xl:w-auto w-full">
-            <Button
-              size="large"
-              className="up-text xl:w-auto w-full"
-              beforeicon={
-                <Image
-                  alt=""
-                  src={"/assets/playstore.svg"}
-                  height={24}
-                  width={24}
-                />
-              }
-            >
-              Download on Playstore
-            </Button>
+            <Link href={"/get-started"}>
+              <Button
+                size="large"
+                className="up-text xl:w-auto w-full"
+                beforeicon={
+                  <Image
+                    alt=""
+                    src={"/assets/playstore.svg"}
+                    height={24}
+                    width={24}
+                  />
+                }
+              >
+                Download on Playstore
+              </Button>
+            </Link>
           </div>
           <div className="overflow-hidden xl:w-auto w-full">
-            <Button
-              size="large"
-              className="up-text xl:w-auto w-full"
-              beforeicon={
-                <Image
-                  alt=""
-                  src={"/assets/apple.svg"}
-                  height={24}
-                  width={24}
-                />
-              }
-            >
-              Download on Applestore
-            </Button>
+            <Link href={"/get-started"}>
+              <Button
+                size="large"
+                className="up-text xl:w-auto w-full"
+                beforeicon={
+                  <Image
+                    alt=""
+                    src={"/assets/apple.svg"}
+                    height={24}
+                    width={24}
+                  />
+                }
+              >
+                Download on Applestore
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

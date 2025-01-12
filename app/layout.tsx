@@ -4,6 +4,7 @@ import "./globals.css"
 import { AppContainer } from "@/components/utilities/AppContainer"
 import { SmoothScroller } from "@/components/utilities/SmoothScroller"
 import { urls } from "@/constants/url"
+import { ToastContainer } from "react-toastify"
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -71,6 +72,7 @@ export default function RootLayout({
         <SmoothScroller>
           <AppContainer>{children}</AppContainer>
         </SmoothScroller>
+        <ToastContainer />
       </body>
     </html>
   )
