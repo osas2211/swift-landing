@@ -15,11 +15,11 @@ export const MeetTheTeam = () => {
     twitter?: string
   }[] = [
     {
-      name: "Elizabeth Nwankwo",
-      picture: "/assets/person-1.png",
-      role: "Sales Manager",
-      linkendIn: "https://www.linkedin.com",
-      twitter: "https://www.twitter.com",
+      name: "Osaretin Frank",
+      picture: "/assets/frank-swift.jpg",
+      role: "Frontend Engineer",
+      linkendIn: "https://www.linkedin.com/in/osaretin-osariemen-03047a1a6/",
+      twitter: "https://x.com/Osaretinfrank3",
     },
     {
       name: "Andrew Maiwada",

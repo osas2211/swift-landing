@@ -17,7 +17,7 @@ export const Header = ({ tl }: { tl?: gsap.core.Timeline }) => {
         </div>
 
         <div className="overflow-y-hidden md:block hidden">
-          <ul className="flex items-center gap-4 text-[15px] up-text-nav">
+          <ul className="flex items-center gap-10 text-[15px] up-text-nav">
             <li>
               <Link href={"/"}>Home</Link>
             </li>
