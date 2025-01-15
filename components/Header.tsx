@@ -28,7 +28,7 @@ export const Header = ({ tl }: { tl?: gsap.core.Timeline }) => {
               <Link href={"/faqs"}>FAQs</Link>
             </li>
             <li>
-              <Link href={"/about"}>About us</Link>
+              <Link href={"/about"}>About</Link>
             </li>
             <li>
               <Link href={"/contact"}>Contact</Link>
@@ -40,7 +40,7 @@ export const Header = ({ tl }: { tl?: gsap.core.Timeline }) => {
           <div className="up-text-nav">
             <Link href={"/get-started"}>
               <Button variant="secondary" size="small">
-                Get started
+                Get Started
               </Button>
             </Link>
           </div>
