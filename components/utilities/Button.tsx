@@ -11,7 +11,7 @@ interface props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   loading?: boolean
 }
 
-export const Button: React.FC<props> = ({ ...props }) => {
+export const Button: React.FC<props> = ({ loading, ...props }) => {
   const isSecondary = props?.variant === "secondary"
   const bgColour = isSecondary ? "bg-secondary" : "bg-primary"
   const textColor = isSecondary ? "text-primary" : "text-white"
@@ -32,9 +32,9 @@ export const Button: React.FC<props> = ({ ...props }) => {
           `${bgColour} ${textColor} ${fontSize} ${paddingY} ${paddingX} rounded-lg flex justify-center items-center gap-[6px] disabled:opacity-70 disabled:cursor-not-allowed`,
           props.className
         )}
-        disabled={props?.disabled || props?.loading}
+        disabled={props?.disabled || loading}
       >
-        {props?.loading && (
+        {loading && (
           <TailSpin
             visible={true}
             height="20"

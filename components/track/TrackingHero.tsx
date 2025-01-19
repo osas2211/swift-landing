@@ -8,6 +8,7 @@ import { urls } from "@/constants/url"
 import { LoaderCircle } from "lucide-react"
 import gsap from "gsap"
 import { TrackingContext } from "@/context/TrackingContext"
+import { toast } from "react-toastify"
 
 export const TrackingHero = () => {
   const [tracking_number, setTrackingNumber] = useState("")
@@ -43,6 +44,12 @@ export const TrackingHero = () => {
       setIsLoading(false)
       set_tracking_data(null)
       setErrMsg(
+        error?.response?.data?.message ||
+          error?.data?.message ||
+          error?.message ||
+          "An Error occured"
+      )
+      toast.error(
         error?.response?.data?.message ||
           error?.data?.message ||
           error?.message ||
