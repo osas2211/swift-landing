@@ -57,6 +57,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+      <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-6CPHSG9VSG"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-6CPHSG9VSG');
+            `,
+          }}
+        />
+        </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${bdo_grotesk.variable} font-bdo antialiased lg:px-0 pb-8 mx-auto`}
       >

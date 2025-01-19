@@ -11,7 +11,7 @@ export const metadata = {
   description:
     "Track SwiftVia delivery orders, riders locations, timestamp and more.",
   openGraph: {
-    images,
+    images: "/assets/SwiftVia-Track.png",
     title: "Live Tracking Delivery Package",
     description:
       "Track your package live on SwiftVia Logistics using the order number from our app once a delivery request is created.",
