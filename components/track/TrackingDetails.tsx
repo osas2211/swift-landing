@@ -21,7 +21,7 @@ export const TrackingDetails = () => {
   })
   return (
     <div className="max-w-[1590px] mx-auto md:my-[153px] my-[120px] md:px-[70px] px-4">
-      <div className="my-6 md:my-11">
+      <div className="">
         <Link href={"/track"}>
           <div className="inline-flex gap-2 items-center">
             <p className="font-sans font-extrabold rotate-180 inline-block">
@@ -34,7 +34,9 @@ export const TrackingDetails = () => {
 
       <div className="flex md:flex-col flex-col-reverse">
         <div className="">
-          <p className="md:text-2xl text-lg my-5 md:my-9">Order information</p>
+          <p className="md:text-2xl text-lg my-5 md:my-9 text-center">
+            Order Information
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             <div className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
@@ -283,7 +285,7 @@ export const TrackingDetails = () => {
                     }{" "}
                   </p> */}
                     <p className="">
-                      Pickup address:{" "}
+                      Delivery address:{" "}
                       {
                         tracking_data?.data?.delivery_request?.dropoff_location
                           ?.address
@@ -296,7 +298,7 @@ export const TrackingDetails = () => {
           </div>
         </div>
 
-        <div className="mt-6 md:mt-[120px]">
+        <div className="mt-6 md:mt-[70px]">
           <MapProvider>
             <TrackingMap data={tracking_data as DeliveryI} />
           </MapProvider>

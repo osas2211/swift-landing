@@ -4,6 +4,7 @@ import { DeliveryI } from "@/types/delivery"
 //Map component Component from library
 import { GoogleMap, Marker, Polygon } from "@react-google-maps/api"
 import { useRef } from "react"
+import { CiLocationOn } from "react-icons/ci"
 
 //K2's coordinates
 const defaultMapCenter = {
@@ -35,15 +36,17 @@ export const TrackingMap = ({ data }: { data: DeliveryI }) => {
   }
   return (
     <div className="w-full">
+      <div className="flex items-center gap-2 mb-3">
+        <CiLocationOn className="text-red-500" />
+        <p>Rider Live Location</p>
+      </div>
       <GoogleMap
         mapContainerStyle={defaultMapContainerStyle}
         center={
           data
             ? {
-                lat: data?.data?.delivery_request?.pickup_location
-                  ?.coordinates[0],
-                lng: data?.data?.delivery_request?.pickup_location
-                  ?.coordinates[1],
+                lat: data?.data?.delivery_request?.current_coordinates![0],
+                lng: data?.data?.delivery_request?.current_coordinates![1],
               }
             : defaultMapCenter
         }
@@ -54,16 +57,14 @@ export const TrackingMap = ({ data }: { data: DeliveryI }) => {
           position={
             data
               ? {
-                  lat: data?.data?.delivery_request?.pickup_location
-                    ?.coordinates[0],
-                  lng: data?.data?.delivery_request?.pickup_location
-                    ?.coordinates[1],
+                  lat: data?.data?.delivery_request?.current_coordinates![0],
+                  lng: data?.data?.delivery_request?.current_coordinates![1],
                 }
               : defaultMapCenter
           }
-          // icon={"/assets/icons/locator.svg"}
+          icon={"/assets/motor.svg"}
         ></Marker>
-        {data && (
+        {/* {data && (
           <Polygon
             paths={[
               {
@@ -80,7 +81,7 @@ export const TrackingMap = ({ data }: { data: DeliveryI }) => {
               },
             ]}
           />
-        )}
+        )} */}
       </GoogleMap>
     </div>
   )

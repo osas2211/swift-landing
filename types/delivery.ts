@@ -2,6 +2,7 @@ export interface DeliveryI {
   success: boolean
   data: {
     delivery_request: {
+      current_coordinates: [number, number]
       receiver: {
         name: string
         phone_number: string
