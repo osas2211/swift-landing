@@ -8,6 +8,10 @@ import ReCAPTCHA from "react-google-recaptcha"
 
 export const ContactForm = () => {
   const [isLoading, setIsLoading] = useState(false)
+  const [isCaptchaValid, setIsCaptchaValid] = useState(false)
+  const handleCaptchaChange = (value: string | null) => {
+    setIsCaptchaValid(!!value)
+  }
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -15,8 +19,13 @@ export const ContactForm = () => {
     subject: "Message from Landing Page",
   })
   const sendMessage = async (e: React.ChangeEvent<HTMLFormElement>) => {
-    setIsLoading(true)
     e.preventDefault()
+    if (!isCaptchaValid) {
+      toast.error("Please complete the captcha validation")
+      return
+    }
+
+    setIsLoading(true)
     try {
       const config = {
         method: "POST",
@@ -104,6 +113,7 @@ export const ContactForm = () => {
                 sitekey={
                   process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE_KEY as string
                 }
+                onChange={handleCaptchaChange}
               />
               <div className="my-4">
                 <Button loading={isLoading}>Submit</Button>
