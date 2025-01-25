@@ -4,6 +4,7 @@ import { Button } from "../utilities/Button"
 import axios from "axios"
 import { ToastContainer, toast } from "react-toastify"
 import { urls } from "@/constants/url"
+import ReCAPTCHA from "react-google-recaptcha"
 
 export const ContactForm = () => {
   const [isLoading, setIsLoading] = useState(false)
@@ -99,6 +100,11 @@ export const ContactForm = () => {
                   className="w-full outline-none bg-transparent h-[96px] inline-block rounded-[4px] px-[10px] py-[8px] text-[14px] border-[1px] border-[#D7D8D3]"
                 />
               </div>
+              <ReCAPTCHA
+                sitekey={
+                  process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE_KEY as string
+                }
+              />
               <div className="my-4">
                 <Button loading={isLoading}>Submit</Button>
               </div>
