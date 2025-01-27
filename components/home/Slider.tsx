@@ -143,15 +143,15 @@ export const Slider = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setActive((prev) => (prev % 3) + 1)
-    }, 7000) // Change number every 5 second
+    }, 15000) // Change number every 15 second
 
     return () => clearInterval(interval) // Cleanup interval on component unmount
-  }, [])
+  }, [active])
   useEffect(() => {
     gsap.fromTo(
       ".animate-slide",
-      { opacity: 0 },
-      { opacity: 1, duration: 1.5, stagger: 0 }
+      { opacity: 0.1, x: 20 },
+      { opacity: 1, duration: 1.5, stagger: 0.1, ease: "expo.out", x: 0 }
     )
   }, [active])
   return (

@@ -119,10 +119,10 @@ const CustomerTab = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setActive((prev) => (prev % 4) + 1)
-    }, 3000) // Change number every 3 second
+    }, 7000) // Change number every 3 second
 
     return () => clearInterval(interval) // Cleanup interval on component unmount
-  }, [])
+  }, [active])
   useEffect(() => {
     gsap.fromTo(
       ".animate-slide-how-it-works",
@@ -263,10 +263,10 @@ const RiderTab = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setActive((prev) => (prev % 4) + 1)
-    }, 3000) // Change number every 3 second
+    }, 7000) // Change number every 3 second
 
     return () => clearInterval(interval) // Cleanup interval on component unmount
-  }, [])
+  }, [active])
   useEffect(() => {
     gsap.fromTo(
       ".animate-slide-how-it-works",
@@ -412,10 +412,10 @@ const LogisticTab = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setActive((prev) => (prev % 4) + 1)
-    }, 3000) // Change number every 3 second
+    }, 7000) // Change number every 3 second
 
     return () => clearInterval(interval) // Cleanup interval on component unmount
-  }, [])
+  }, [active])
   useEffect(() => {
     gsap.fromTo(
       ".animate-slide-how-it-works",

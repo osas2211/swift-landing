@@ -73,15 +73,15 @@ export const Hero = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setActive((prev) => (prev % 3) + 1)
-    }, 7000) // Change number every 5 second
+    }, 10000) // Change number every 10 second
 
     return () => clearInterval(interval) // Cleanup interval on component unmount
-  }, [])
+  }, [active])
   useEffect(() => {
     gsap.fromTo(
       ".animate-slide-hero",
       { opacity: 0, x: 100, y: 100 },
-      { opacity: 1, duration: 0.5, stagger: 0, x: 0, y: 0 }
+      { opacity: 1, duration: 1, stagger: 0, x: 0, y: 0, ease: "expo.out" }
     )
   }, [active])
   return (
