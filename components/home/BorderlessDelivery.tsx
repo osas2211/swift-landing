@@ -12,7 +12,7 @@ export const BorderlessDelivery = () => {
           <div className="max-w-[680px] md:min-h-[560px] flex flex-col justify-between">
             <div>
               <p className="mb-[52px] lg:text-[64px] lg:leading-[84px] md:text-[40px] md:leading-[58px] text-[36px] leading-[54px] max-w-[672px]">
-                Say Hello To Borderless Delivery
+              Redefining Your Last-Mile Delivery
               </p>
               <Link href={"/get-started"}>
                 <Button className="bg-white !text-primary !rounded-full">
@@ -22,23 +22,23 @@ export const BorderlessDelivery = () => {
             </div>
             <div className="grid lg:grid-cols-3 grid-cols-[126px,1fr,1fr] md:gap-5 gap-2 md:mt-0 mt-8">
               <div>
-                <p className="lg:text-[36px] text-[24px] font-semibold">500+</p>
+                <p className="lg:text-[36px] text-[24px] font-semibold">***</p>
                 <p className="md:text-sm text-xs md:w-[160px] text-[#D7D8D3]">
                   Registered Independent Riders
                 </p>
               </div>
               <div>
-                <p className="lg:text-[36px] text-[24px] font-semibold">50+</p>
+                <p className="lg:text-[36px] text-[24px] font-semibold">***</p>
                 <p className="md:text-sm text-xs md:w-[160px] text-[#D7D8D3]">
                   Registered Logistic Partners
                 </p>
               </div>
               <div>
                 <p className="lg:text-[36px] text-[24px] font-semibold">
-                  5000+
+                  ***
                 </p>
                 <p className="md:text-sm text-xs md:w-[160px] text-[#D7D8D3]">
-                  Registered Customer base
+                  Registered Customer Base
                 </p>
               </div>
             </div>

@@ -42,34 +42,34 @@ export const MeetTheTeam = () => {
       linkendIn: "https://www.linkedin.com",
       twitter: "https://www.twitter.com",
     },
-    {
-      name: "Priscilla Iwowari",
-      picture: "/assets/person-3.png",
-      role: "IT officer",
-      linkendIn: "https://www.linkedin.com",
-      twitter: "https://www.twitter.com",
-    },
-    {
-      name: "Michael Pepple",
-      picture: "/assets/delivery-person.png",
-      role: "Customer Support",
-      linkendIn: "https://www.linkedin.com",
-      twitter: "https://www.twitter.com",
-    },
-    {
-      name: "Michael Ezemma",
-      picture: "/assets/person-1.png",
-      role: "Logistics Manager",
-      linkendIn: "https://www.linkedin.com",
-      twitter: "https://www.twitter.com",
-    },
-    {
-      name: "Hannah Agu",
-      picture: "/assets/delivery-person-2.png",
-      role: "Customer Support",
-      linkendIn: "https://www.linkedin.com",
-      twitter: "https://www.twitter.com",
-    },
+    // {
+    //   name: "Priscilla Iwowari",
+    //   picture: "/assets/person-3.png",
+    //   role: "IT officer",
+    //   linkendIn: "https://www.linkedin.com",
+    //   twitter: "https://www.twitter.com",
+    // },
+    // {
+    //   name: "Michael Pepple",
+    //   picture: "/assets/delivery-person.png",
+    //   role: "Customer Support",
+    //   linkendIn: "https://www.linkedin.com",
+    //   twitter: "https://www.twitter.com",
+    // },
+    // {
+    //   name: "Michael Ezemma",
+    //   picture: "/assets/person-1.png",
+    //   role: "Logistics Manager",
+    //   linkendIn: "https://www.linkedin.com",
+    //   twitter: "https://www.twitter.com",
+    // },
+    // {
+    //   name: "Hannah Agu",
+    //   picture: "/assets/delivery-person-2.png",
+    //   role: "Customer Support",
+    //   linkendIn: "https://www.linkedin.com",
+    //   twitter: "https://www.twitter.com",
+    // },
   ]
   return (
     <div className="md:my-[153px] my-[70px] max-w-[1590px] mx-auto p-4 lg:py-[90px] py-6 lg:px-[70px] px-4">

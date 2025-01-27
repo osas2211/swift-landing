@@ -49,7 +49,6 @@ export const About = () => {
       <OurStory />
       <OurValue />
       <OurGoal />
-      <MeetTheTeam />
       <Newsletter />
       <Footer />
     </div>

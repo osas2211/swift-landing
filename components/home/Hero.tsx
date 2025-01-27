@@ -150,7 +150,7 @@ export const Hero = ({ tl }: { tl: gsap.core.Timeline }) => {
                   />
                 }
               >
-                Download on Playstore
+                Download on Google Play
               </Button>
             </Link>
           </div>
@@ -168,7 +168,7 @@ export const Hero = ({ tl }: { tl: gsap.core.Timeline }) => {
                   />
                 }
               >
-                Download on Applestore
+                Download on App Store
               </Button>
             </Link>
           </div>

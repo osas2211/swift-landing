@@ -152,7 +152,7 @@ const CustomerTab = () => {
                   />
                 }
               >
-                Playstore
+                Google Play
               </Button>
             </Link>
           </div>
@@ -170,7 +170,7 @@ const CustomerTab = () => {
                   />
                 }
               >
-                Applestore
+                App Store
               </Button>
             </Link>
           </div>
@@ -214,7 +214,7 @@ const RiderTab = () => {
         <p className="text-[#60605E] text-[18px]">01</p>
         <p className="font-medium md:text-2xl text-lg">Download & Register</p>
         <p className="text-sm max-w-[362px] text-[#60605E]">
-          Get the app from your Google Playstore or Apple store and complete the
+          Get the app from your Google Play Store or Apple Store and complete the
           registration form with your details.
         </p>
       </div>
@@ -295,7 +295,7 @@ const RiderTab = () => {
                   />
                 }
               >
-                Playstore
+                Google Play
               </Button>
             </Link>
           </div>
@@ -313,7 +313,7 @@ const RiderTab = () => {
                   />
                 }
               >
-                Applestore
+                App Store
               </Button>
             </Link>
           </div>
