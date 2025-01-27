@@ -69,7 +69,7 @@ export const TrackingDetails = () => {
     if (!tracking_data) {
       getTrackingDetails()
     }
-  })
+  }, [tracking_data])
   return (
     <>
       {isLoading ? (
