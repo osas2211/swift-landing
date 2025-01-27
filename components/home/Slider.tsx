@@ -188,7 +188,7 @@ export const Slider = () => {
               </ul>
             </div>
           </div>
-          <div className="md:-mr-64 animate-slide">
+          <div className="2xl:-mr-64 md:-mr-40 animate-slide">
             <div className="md:block hidden">
               <Image
                 src={toRenderItem.image}
@@ -208,7 +208,7 @@ export const Slider = () => {
             </div>
           </div>
         </div>
-        <div className="md:-mt-20 mt-4 flex gap-[6px] items-center">
+        <div className="2xl:-mt-20 mt-4 flex gap-[6px] items-center">
           {dots.map((index) => {
             const isActive = index === active
             return (
