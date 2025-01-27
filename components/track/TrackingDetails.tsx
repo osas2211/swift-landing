@@ -1,57 +1,120 @@
 "use client"
 import Link from "next/link"
-import React, { useContext, useEffect } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { GoCheckCircleFill } from "react-icons/go"
 import { TrackingMap } from "./TrackingMap"
 import { MapProvider } from "./MapProvider"
 import { TrackingContext } from "@/context/TrackingContext"
-import { useRouter } from "next/navigation"
+import { useParams, useRouter } from "next/navigation"
 import moment from "moment"
 import { DeliveryI } from "@/types/delivery"
+import { toast } from "react-toastify"
+import { urls } from "@/constants/url"
+import axios from "axios"
+import { RotatingLines } from "react-loader-spinner"
 
 export const TrackingDetails = () => {
-  const { tracking_data } = useContext(TrackingContext)
+  const { tracking_data, set_tracking_data } = useContext(TrackingContext)
   const router = useRouter()
+  const { id } = useParams()
   const timestamp = tracking_data?.data?.delivery_request?.timestamp
   const status = tracking_data?.data?.delivery_request?.status
+  const [isLoading, setIsLoading] = useState(false)
+  const [errMsg, setErrMsg] = useState("")
+
+  const getTrackingDetails = async () => {
+    try {
+      setIsLoading(true)
+      let config = {
+        method: "get",
+        maxBodyLength: Infinity,
+        url: `${urls.base_url}/delivery/track?order_number=${id}`,
+        headers: {},
+        // data: data,
+      }
+
+      const response: { data: DeliveryI } = await axios(config)
+      setIsLoading(false)
+      setErrMsg("")
+      set_tracking_data(response?.data)
+      if (
+        response?.data?.data?.delivery_request?.status
+          ?.toLowerCase()
+          ?.includes("pending")
+      ) {
+        throw new Error("Order is still pending")
+      } else {
+        router.push(`/track/${id}`)
+      }
+    } catch (error: any) {
+      router.push("/track")
+      setIsLoading(false)
+      set_tracking_data(null)
+      setErrMsg(
+        error?.response?.data?.message ||
+          error?.data?.message ||
+          error?.message ||
+          "An Error occured"
+      )
+      toast.error(
+        error?.response?.data?.message ||
+          error?.data?.message ||
+          error?.message ||
+          "An Error occured"
+      )
+    }
+  }
+
   useEffect(() => {
     if (!tracking_data) {
-      router.push("/track")
+      getTrackingDetails()
     }
   })
   return (
-    <div className="max-w-[1590px] mx-auto md:my-[153px] my-[120px] md:px-[70px] px-4">
-      <div className="">
-        <Link href={"/track"}>
-          <div className="inline-flex gap-2 items-center">
-            <p className="font-sans font-extrabold rotate-180 inline-block">
-              &#10141;
-            </p>
-            <p>Back</p>
+    <>
+      {isLoading ? (
+        <div className="h-[60vh] flex items-center justify-center flex-col overflow-hidden text-black gap-3">
+          <RotatingLines
+            visible={true}
+            strokeWidth="5"
+            animationDuration="0.75"
+            ariaLabel="rotating-lines-loading"
+          />
+          <p>Loading details...</p>
+        </div>
+      ) : (
+        <div className="max-w-[1590px] mx-auto md:my-[153px] my-[120px] md:px-[70px] px-4">
+          <div className="">
+            <Link href={"/track"}>
+              <div className="inline-flex gap-2 items-center">
+                <p className="font-sans font-extrabold rotate-180 inline-block">
+                  &#10141;
+                </p>
+                <p>Back</p>
+              </div>
+            </Link>
           </div>
-        </Link>
-      </div>
 
-      <div className="flex md:flex-col flex-col-reverse">
-        <div className="">
-          <p className="md:text-2xl text-lg my-5 md:my-9 text-center">
-            Order Information
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <div className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                <p className="font-medium text-xs">Order Number:</p>
-                <p className="text-xs text-[#60605E]">
-                  {tracking_data?.data?.delivery_request?.order_number}
-                </p>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                <p className="font-medium text-xs">Order Date:</p>
-                <p className="text-xs text-[#60605E]">
-                  {moment(timestamp?.created).format("ll")}
-                </p>
-              </div>
-              {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+          <div className="flex md:flex-col flex-col-reverse">
+            <div className="">
+              <p className="md:text-2xl text-lg my-5 md:my-9 text-center">
+                Order Information
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div className="space-y-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                    <p className="font-medium text-xs">Order Number:</p>
+                    <p className="text-xs text-[#60605E]">
+                      {tracking_data?.data?.delivery_request?.order_number}
+                    </p>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                    <p className="font-medium text-xs">Order Date:</p>
+                    <p className="text-xs text-[#60605E]">
+                      {moment(timestamp?.created).format("ll")}
+                    </p>
+                  </div>
+                  {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
               <p className="font-medium text-xs">Amount Paid:</p>
               <p className="text-xs text-[#60605E]">
                 {Intl.NumberFormat("en-NG", {
@@ -60,55 +123,61 @@ export const TrackingDetails = () => {
                 }).format(tracking_data?.data?.delivery_request?.price || 0)}
               </p>
             </div> */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                <p className="font-medium text-xs">Pickup Address:</p>
-                <p className="text-xs text-[#60605E]">
-                  {
-                    tracking_data?.data?.delivery_request?.pickup_location
-                      ?.address
-                  }
-                </p>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                <p className="font-medium text-xs">Status:</p>
-                <p className="text-xs text-[#10617A] capitalize">
-                  {status?.toLowerCase()?.includes("review")
-                    ? "Review"
-                    : status?.toLowerCase()?.includes("pick")
-                    ? "In-Transit"
-                    : status}
-                </p>
-              </div>
-            </div>
-            <div className="text-xs space-y-4 md:max-h-[420px] overflow-auto">
-              <div className="grid grid-cols-[130px,auto] md:gap-[54px] gap-[27px] h-auto">
-                <div className="flex gap-[12px] h-[100%] min-h-[55px]">
-                  <div className="flex flex-col items-center gap-[6px]">
-                    <GoCheckCircleFill size={24} className="text-[#37913B]" />
-                    <div className="w-[2px] h-[100%] bg-[#37913B]" />
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                    <p className="font-medium text-xs">Pickup Address:</p>
+                    <p className="text-xs text-[#60605E]">
+                      {
+                        tracking_data?.data?.delivery_request?.pickup_location
+                          ?.address
+                      }
+                    </p>
                   </div>
-                  <div>
-                    <p>{moment(timestamp?.created).format("ll")}</p>
-                    <p className="text-[11px] text-[#60605E] mt-[2px]">
-                      {moment(timestamp?.created).format("LT")}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                    <p className="font-medium text-xs">Status:</p>
+                    <p className="text-xs text-[#10617A] capitalize">
+                      {status?.toLowerCase()?.includes("review")
+                        ? "Review"
+                        : status?.toLowerCase()?.includes("pick")
+                        ? "In-Transit"
+                        : status}
                     </p>
                   </div>
                 </div>
-                <div>
-                  <p>Delivery Request Created</p>
-                  <div className="text-[11px] text-[#60605E] mt-[2px]">
-                    <p className="">
-                      Pickup:{" "}
-                      {
-                        tracking_data?.data?.delivery_request?.pickup_location
-                          ?.description
-                      }
-                    </p>
-                    <p>
-                      Payment:{" "}
-                      {tracking_data?.data?.delivery_request?.payment_method}
-                    </p>
-                    {/* <p>
+                <div className="text-xs space-y-4 md:max-h-[420px] overflow-auto">
+                  <div className="grid grid-cols-[130px,auto] md:gap-[54px] gap-[27px] h-auto">
+                    <div className="flex gap-[12px] h-[100%] min-h-[55px]">
+                      <div className="flex flex-col items-center gap-[6px]">
+                        <GoCheckCircleFill
+                          size={24}
+                          className="text-[#37913B]"
+                        />
+                        <div className="w-[2px] h-[100%] bg-[#37913B]" />
+                      </div>
+                      <div>
+                        <p>{moment(timestamp?.created).format("ll")}</p>
+                        <p className="text-[11px] text-[#60605E] mt-[2px]">
+                          {moment(timestamp?.created).format("LT")}
+                        </p>
+                      </div>
+                    </div>
+                    <div>
+                      <p>Delivery Request Created</p>
+                      <div className="text-[11px] text-[#60605E] mt-[2px]">
+                        <p className="">
+                          Pickup:{" "}
+                          {
+                            tracking_data?.data?.delivery_request
+                              ?.pickup_location?.description
+                          }
+                        </p>
+                        <p>
+                          Payment:{" "}
+                          {
+                            tracking_data?.data?.delivery_request
+                              ?.payment_method
+                          }
+                        </p>
+                        {/* <p>
                     Amount:{" "}
                     {Intl.NumberFormat("en-NG", {
                       currency: "NGN",
@@ -117,193 +186,205 @@ export const TrackingDetails = () => {
                       tracking_data?.data?.delivery_request?.price || 0
                     )}
                   </p> */}
-                  </div>
-                </div>
-              </div>
-              <div className="grid grid-cols-[130px,auto] md:gap-[54px] gap-[27px] h-auto">
-                <div className="flex gap-[12px] h-[100%] min-h-[55px]">
-                  <div className="flex flex-col items-center gap-[6px]">
-                    <GoCheckCircleFill
-                      size={24}
-                      className={`${
-                        timestamp?.accepted
-                          ? "text-[#37913B]"
-                          : "text-[#7C7C7A]"
-                      }`}
-                    />
-                    <div
-                      className={`w-[2px] h-[100%] ${
-                        timestamp?.accepted ? "bg-[#37913B]" : "bg-[#7C7C7A]"
-                      }`}
-                    />
-                  </div>
-                  <div>
-                    <div>
-                      <p>{moment(timestamp?.accepted).format("ll")}</p>
-                      <p className="text-[11px] text-[#60605E] mt-[2px]">
-                        {moment(timestamp?.accepted).format("LT")}
-                      </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div>
-                  <p>Rider Accepted Request</p>
-                  <div className="text-[11px] text-[#60605E] mt-[2px]">
-                    {/* <p className="">
+                  <div className="grid grid-cols-[130px,auto] md:gap-[54px] gap-[27px] h-auto">
+                    <div className="flex gap-[12px] h-[100%] min-h-[55px]">
+                      <div className="flex flex-col items-center gap-[6px]">
+                        <GoCheckCircleFill
+                          size={24}
+                          className={`${
+                            timestamp?.accepted
+                              ? "text-[#37913B]"
+                              : "text-[#7C7C7A]"
+                          }`}
+                        />
+                        <div
+                          className={`w-[2px] h-[100%] ${
+                            timestamp?.accepted
+                              ? "bg-[#37913B]"
+                              : "bg-[#7C7C7A]"
+                          }`}
+                        />
+                      </div>
+                      <div>
+                        <div>
+                          <p>{moment(timestamp?.accepted).format("ll")}</p>
+                          <p className="text-[11px] text-[#60605E] mt-[2px]">
+                            {moment(timestamp?.accepted).format("LT")}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <p>Rider Accepted Request</p>
+                      <div className="text-[11px] text-[#60605E] mt-[2px]">
+                        {/* <p className="">
                     Rider name:{" "}
                     {
                       tracking_data?.data?.delivery_request?.rider?.user
                         ?.fullname
                     }{" "}
                   </p> */}
-                  </div>
-                </div>
-              </div>
-              <div className="grid grid-cols-[130px,auto] md:gap-[54px] gap-[27px] h-auto">
-                <div className="flex gap-[12px] h-[100%] min-h-[55px]">
-                  <div className="flex flex-col items-center gap-[6px]">
-                    <GoCheckCircleFill
-                      size={24}
-                      className={`${
-                        timestamp?.approved_for_pickup
-                          ? "text-[#37913B]"
-                          : "text-[#7C7C7A]"
-                      }`}
-                    />
-                    <div
-                      className={`w-[2px] h-[100%] ${
-                        timestamp?.approved_for_pickup
-                          ? "bg-[#37913B]"
-                          : "bg-[#7C7C7A]"
-                      }`}
-                    />
-                  </div>
-                  <div>
-                    <div>
-                      <p>
-                        {moment(timestamp?.approved_for_pickup).format("ll")}
-                      </p>
-                      <p className="text-[11px] text-[#60605E] mt-[2px]">
-                        {moment(timestamp?.approved_for_pickup).format("LT")}
-                      </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div>
-                  <p>Delivery Request Approved</p>
-                  <div className="text-[11px] text-[#60605E] mt-[2px]">
-                    {/* <p className="">
+                  <div className="grid grid-cols-[130px,auto] md:gap-[54px] gap-[27px] h-auto">
+                    <div className="flex gap-[12px] h-[100%] min-h-[55px]">
+                      <div className="flex flex-col items-center gap-[6px]">
+                        <GoCheckCircleFill
+                          size={24}
+                          className={`${
+                            timestamp?.approved_for_pickup
+                              ? "text-[#37913B]"
+                              : "text-[#7C7C7A]"
+                          }`}
+                        />
+                        <div
+                          className={`w-[2px] h-[100%] ${
+                            timestamp?.approved_for_pickup
+                              ? "bg-[#37913B]"
+                              : "bg-[#7C7C7A]"
+                          }`}
+                        />
+                      </div>
+                      <div>
+                        <div>
+                          <p>
+                            {moment(timestamp?.approved_for_pickup).format(
+                              "ll"
+                            )}
+                          </p>
+                          <p className="text-[11px] text-[#60605E] mt-[2px]">
+                            {moment(timestamp?.approved_for_pickup).format(
+                              "LT"
+                            )}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <p>Delivery Request Approved</p>
+                      <div className="text-[11px] text-[#60605E] mt-[2px]">
+                        {/* <p className="">
                     Rider name:{" "}
                     {
                       tracking_data?.data?.delivery_request?.rider?.user
                         ?.fullname
                     }{" "}
                   </p> */}
-                  </div>
-                </div>
-              </div>
-              <div className="grid grid-cols-[130px,auto] md:gap-[54px] gap-[27px] h-auto">
-                <div className="flex gap-[12px] h-[100%] min-h-[55px]">
-                  <div className="flex flex-col items-center gap-[6px]">
-                    <GoCheckCircleFill
-                      size={24}
-                      className={`${
-                        timestamp?.picked_up
-                          ? "text-[#37913B]"
-                          : "text-[#7C7C7A]"
-                      }`}
-                    />
-                    <div
-                      className={`w-[2px] h-[100%] ${
-                        timestamp?.picked_up ? "bg-[#37913B]" : "bg-[#7C7C7A]"
-                      }`}
-                    />
-                  </div>
-                  <div>
-                    <div>
-                      <p>{moment(timestamp?.picked_up).format("ll")}</p>
-                      <p className="text-[11px] text-[#60605E] mt-[2px]">
-                        {moment(timestamp?.picked_up).format("LT")}
-                      </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div>
-                  <p>Rider Pickup Package</p>
-                  <div className="text-[11px] text-[#60605E] mt-[2px]">
-                    {/* <p className="">
+                  <div className="grid grid-cols-[130px,auto] md:gap-[54px] gap-[27px] h-auto">
+                    <div className="flex gap-[12px] h-[100%] min-h-[55px]">
+                      <div className="flex flex-col items-center gap-[6px]">
+                        <GoCheckCircleFill
+                          size={24}
+                          className={`${
+                            timestamp?.picked_up
+                              ? "text-[#37913B]"
+                              : "text-[#7C7C7A]"
+                          }`}
+                        />
+                        <div
+                          className={`w-[2px] h-[100%] ${
+                            timestamp?.picked_up
+                              ? "bg-[#37913B]"
+                              : "bg-[#7C7C7A]"
+                          }`}
+                        />
+                      </div>
+                      <div>
+                        <div>
+                          <p>{moment(timestamp?.picked_up).format("ll")}</p>
+                          <p className="text-[11px] text-[#60605E] mt-[2px]">
+                            {moment(timestamp?.picked_up).format("LT")}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <p>Rider Pickup Package</p>
+                      <div className="text-[11px] text-[#60605E] mt-[2px]">
+                        {/* <p className="">
                     Rider name:{" "}
                     {
                       tracking_data?.data?.delivery_request?.rider?.user
                         ?.fullname
                     }{" "}
                   </p> */}
-                    <p className="">
-                      Pickup address:{" "}
-                      {
-                        tracking_data?.data?.delivery_request?.pickup_location
-                          ?.address
-                      }
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="grid grid-cols-[130px,auto] md:gap-[54px] gap-[27px] h-auto">
-                <div className="flex gap-[12px] h-[100%] min-h-[55px]">
-                  <div className="flex flex-col items-center gap-[6px]">
-                    <GoCheckCircleFill
-                      size={24}
-                      className={`${
-                        timestamp?.completed
-                          ? "text-[#37913B]"
-                          : "text-[#7C7C7A]"
-                      }`}
-                    />
-                    <div
-                      className={`w-[2px] h-[100%] ${
-                        timestamp?.completed ? "bg-[#37913B]" : "bg-[#7C7C7A]"
-                      }`}
-                    />
-                  </div>
-                  <div>
-                    <div>
-                      <p>{moment(timestamp?.completed).format("ll")}</p>
-                      <p className="text-[11px] text-[#60605E] mt-[2px]">
-                        {moment(timestamp?.completed).format("LT")}
-                      </p>
+                        <p className="">
+                          Pickup address:{" "}
+                          {
+                            tracking_data?.data?.delivery_request
+                              ?.pickup_location?.address
+                          }
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div>
-                  <p>Rider Deliver Package</p>
-                  <div className="text-[11px] text-[#60605E] mt-[2px]">
-                    {/* <p className="">
+                  <div className="grid grid-cols-[130px,auto] md:gap-[54px] gap-[27px] h-auto">
+                    <div className="flex gap-[12px] h-[100%] min-h-[55px]">
+                      <div className="flex flex-col items-center gap-[6px]">
+                        <GoCheckCircleFill
+                          size={24}
+                          className={`${
+                            timestamp?.completed
+                              ? "text-[#37913B]"
+                              : "text-[#7C7C7A]"
+                          }`}
+                        />
+                        <div
+                          className={`w-[2px] h-[100%] ${
+                            timestamp?.completed
+                              ? "bg-[#37913B]"
+                              : "bg-[#7C7C7A]"
+                          }`}
+                        />
+                      </div>
+                      <div>
+                        <div>
+                          <p>{moment(timestamp?.completed).format("ll")}</p>
+                          <p className="text-[11px] text-[#60605E] mt-[2px]">
+                            {moment(timestamp?.completed).format("LT")}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <p>Rider Deliver Package</p>
+                      <div className="text-[11px] text-[#60605E] mt-[2px]">
+                        {/* <p className="">
                     Rider name:{" "}
                     {
                       tracking_data?.data?.delivery_request?.rider?.user
                         ?.fullname
                     }{" "}
                   </p> */}
-                    <p className="">
-                      Delivery address:{" "}
-                      {
-                        tracking_data?.data?.delivery_request?.dropoff_location
-                          ?.address
-                      }
-                    </p>
+                        <p className="">
+                          Delivery address:{" "}
+                          {
+                            tracking_data?.data?.delivery_request
+                              ?.dropoff_location?.address
+                          }
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+
+            <div className="mt-6 md:mt-[70px]">
+              <MapProvider>
+                <TrackingMap data={tracking_data as DeliveryI} />
+              </MapProvider>
+            </div>
           </div>
         </div>
-
-        <div className="mt-6 md:mt-[70px]">
-          <MapProvider>
-            <TrackingMap data={tracking_data as DeliveryI} />
-          </MapProvider>
-        </div>
-      </div>
-    </div>
+      )}
+    </>
   )
 }
